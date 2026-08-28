@@ -12,124 +12,162 @@
 <meta property="og:site_name" content="데이터노트">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;800;900&display=swap">
 <style>
 :root{
-  --paper:#FBFAF7; --card:#FFF; --ink:#16181A; --ink2:#3E4448; --ink3:#767C80;
-  --rule:#D8D4CC; --hair:#E8E5DE; --accent:#7C1D1D; --accent2:#1B3A5C; --tint:#F2EFE8;
+  --paper:#FFF; --bg:#F4F5F6; --ink:#111417; --ink2:#3C4247; --ink3:#7A8288;
+  --rule:#DFE2E5; --hair:#EDEFF1; --red:#C8102E; --navy:#0F2B46; --tint:#F7F8F9;
 }
 @media(prefers-color-scheme:dark){:root{
-  --paper:#131517; --card:#191C1F; --ink:#E9EBEC; --ink2:#B4BABE; --ink3:#828A8F;
-  --rule:#2F3438; --hair:#242A2E; --accent:#D98A8A; --accent2:#8FB6D8; --tint:#1D2226;
+  --paper:#15181B; --bg:#0E1113; --ink:#EDEFF1; --ink2:#B7BEC4; --ink3:#828A91;
+  --rule:#2A3035; --hair:#20262A; --red:#E8697F; --navy:#9FC2E0; --tint:#1B2024;
 }}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--paper);color:var(--ink);font-size:17px;line-height:1.72;
- font-family:"Nanum Myeongjo","Apple SD Gothic Neo","Malgun Gothic",Georgia,serif;
+body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;
+ font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
  -webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.serif{font-family:"Noto Serif KR",Georgia,serif}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px;background:var(--paper)}
+@media(min-width:1220px){.wrap{box-shadow:0 0 0 1px var(--hair)}}
 
+/* 상단 유틸 */
+.util{border-bottom:1px solid var(--hair);font-size:11.5px;color:var(--ink3)}
+.util .in{max-width:1180px;margin:0 auto;padding:7px 20px;display:flex;
+ justify-content:space-between;gap:12px}
 /* 제호 */
-.masthead{border-bottom:3px double var(--rule);padding:22px 0 12px;text-align:center}
-.masthead .kicker{font-size:11px;letter-spacing:.34em;color:var(--ink3);
- text-transform:uppercase;font-family:system-ui,sans-serif}
-.masthead h1{margin:8px 0 6px;font-size:clamp(30px,6vw,52px);letter-spacing:-.02em;
- font-weight:700;line-height:1.05}
-.masthead .sub{font-size:12.5px;color:var(--ink3);font-family:system-ui,sans-serif;
- display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
-nav.desks{border-bottom:1px solid var(--rule);margin-bottom:26px}
-nav.desks .in{display:flex;justify-content:center;gap:2px;flex-wrap:wrap;padding:9px 0}
-nav.desks a{font-size:13.5px;padding:5px 15px;color:var(--ink2);
- font-family:system-ui,sans-serif;border-radius:3px}
-nav.desks a:hover{background:var(--tint);color:var(--accent)}
-nav.desks a.on{color:var(--accent);font-weight:700}
+.masthead{text-align:center;padding:20px 0 14px}
+.masthead .logo{display:inline-flex;align-items:center;gap:11px}
+.masthead .logo svg{display:block}
+.masthead .name{font-family:"Noto Serif KR",serif;font-weight:900;
+ font-size:clamp(29px,5.4vw,44px);letter-spacing:-.03em;line-height:1}
+.masthead .en{font-size:10.5px;letter-spacing:.42em;color:var(--ink3);margin-top:7px}
+/* 섹션 메뉴 */
+nav.gnb{border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);position:sticky;
+ top:0;background:var(--paper);z-index:20}
+nav.gnb .in{display:flex;justify-content:center;gap:0;flex-wrap:wrap}
+nav.gnb a{font-size:15px;font-weight:500;padding:11px 20px;color:var(--ink);position:relative}
+nav.gnb a:hover{color:var(--red)}
+nav.gnb a.on{color:var(--red);font-weight:700}
+nav.gnb a.on::after{content:"";position:absolute;left:16px;right:16px;bottom:-1px;height:2px;
+ background:var(--red)}
 
-/* 1면 톱 */
-.lead{display:grid;grid-template-columns:1.55fr 1fr;gap:34px;padding-bottom:26px;
- border-bottom:1px solid var(--rule);margin-bottom:26px}
-@media(max-width:820px){.lead{grid-template-columns:1fr;gap:22px}}
-.lead .top h2{font-size:clamp(25px,3.6vw,37px);line-height:1.22;margin:6px 0 10px;
- letter-spacing:-.022em;text-wrap:balance}
-.lead .top p{color:var(--ink2);font-size:16px;margin:0}
-.lead .top img{width:100%;height:auto;border-radius:2px;margin-bottom:12px;
- border:1px solid var(--hair)}
-.aside{border-left:1px solid var(--hair);padding-left:22px}
-@media(max-width:820px){.aside{border-left:0;padding-left:0;border-top:1px solid var(--hair);padding-top:18px}}
-.aside h3{font-size:11.5px;letter-spacing:.2em;color:var(--accent);margin:0 0 12px;
- font-family:system-ui,sans-serif;text-transform:uppercase}
-.aside li{list-style:none;padding:9px 0;border-bottom:1px dotted var(--hair)}
-.aside li:last-child{border:0}
-.aside a{font-size:15px;line-height:1.45;display:block}
-.aside ol{margin:0;padding:0;counter-reset:n}
-.aside ol li::before{counter-increment:n;content:counter(n);color:var(--accent);
- font-weight:700;margin-right:8px;font-family:system-ui,sans-serif;font-size:12px}
+/* 1면 */
+main{padding:24px 0 10px}
+.top{display:grid;grid-template-columns:2fr 1fr;gap:30px;padding-bottom:24px;
+ border-bottom:1px solid var(--rule)}
+@media(max-width:880px){.top{grid-template-columns:1fr;gap:20px}}
+.hero .media{position:relative;display:block;background:var(--tint);overflow:hidden}
+.hero .media img,.hero .media video{width:100%;height:auto;display:block}
+.hero .media .play{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.72);
+ color:#fff;font-size:11px;padding:5px 10px;border-radius:2px;letter-spacing:.06em}
+.hero .cat{display:inline-block;color:var(--red);font-size:12px;font-weight:700;
+ letter-spacing:.1em;margin:14px 0 6px}
+.hero h2{font-family:"Noto Serif KR",serif;font-weight:800;
+ font-size:clamp(24px,3.4vw,35px);line-height:1.26;margin:0 0 10px;letter-spacing:-.03em;
+ text-wrap:balance}
+.hero p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.66}
+.rank{border-top:2px solid var(--ink);padding-top:12px}
+.rank h3{font-size:13px;font-weight:800;margin:0 0 10px;letter-spacing:.04em}
+.rank ol{list-style:none;margin:0;padding:0;counter-reset:r}
+.rank li{counter-increment:r;border-bottom:1px solid var(--hair);padding:10px 0}
+.rank li:last-child{border:0}
+.rank li a{display:flex;gap:10px;font-size:14.5px;line-height:1.45}
+.rank li a::before{content:counter(r);color:var(--red);font-weight:800;font-size:13px;
+ min-width:15px}
+.rank li a:hover{color:var(--red)}
 
 /* 지면 */
-.desk{margin-bottom:34px}
-.desk-h{display:flex;align-items:center;gap:12px;margin-bottom:16px}
-.desk-h h3{margin:0;font-size:16px;letter-spacing:.08em;color:var(--accent);white-space:nowrap}
-.desk-h .line{flex:1;height:1px;background:var(--rule)}
-.desk-h .n{font-size:12px;color:var(--ink3);font-family:system-ui,sans-serif}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:22px}
-.item{border-top:1px solid var(--hair);padding-top:12px}
-.item h4{margin:0 0 6px;font-size:17px;line-height:1.38;letter-spacing:-.012em}
-.item p{margin:0;color:var(--ink3);font-size:13.5px;line-height:1.55}
-.item .tag{font-size:10.5px;letter-spacing:.14em;color:var(--accent);
- font-family:system-ui,sans-serif;display:block;margin-bottom:5px}
-.item:hover h4{color:var(--accent)}
+.sec{padding:26px 0;border-bottom:1px solid var(--rule)}
+.sec:last-of-type{border:0}
+.sec-h{display:flex;align-items:baseline;gap:11px;margin-bottom:16px}
+.sec-h h3{margin:0;font-family:"Noto Serif KR",serif;font-weight:800;font-size:21px;
+ letter-spacing:-.02em}
+.sec-h .bar{width:3px;height:19px;background:var(--red);border-radius:1px}
+.sec-h .more{margin-left:auto;font-size:12.5px;color:var(--ink3)}
+.sec-h .more:hover{color:var(--red)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:22px}
+.c{display:block}
+.c .thumb{background:var(--tint);aspect-ratio:16/10;overflow:hidden;margin-bottom:10px;
+ position:relative}
+.c .thumb img{width:100%;height:100%;object-fit:cover;display:block;
+ transition:transform .35s ease}
+.c:hover .thumb img{transform:scale(1.035)}
+.c .thumb .vid{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.7);color:#fff;
+ font-size:10px;padding:3px 7px;border-radius:2px}
+.c .cat{font-size:11px;color:var(--red);font-weight:700;letter-spacing:.08em}
+.c h4{font-family:"Noto Serif KR",serif;font-weight:700;margin:5px 0 5px;font-size:16.5px;
+ line-height:1.4;letter-spacing:-.02em}
+.c:hover h4{color:var(--red)}
+.c p{margin:0;color:var(--ink3);font-size:13px;line-height:1.55}
 
 /* 기사 */
-article{max-width:720px;margin:0 auto}
-article .tag{font-size:11px;letter-spacing:.2em;color:var(--accent);
- font-family:system-ui,sans-serif;display:block;margin-bottom:10px}
-article h1{font-size:clamp(26px,4.4vw,38px);line-height:1.26;margin:0 0 12px;
- letter-spacing:-.024em;text-wrap:balance}
-.byline{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
- padding:9px 0;margin-bottom:26px;font-size:12.5px;color:var(--ink3);
- font-family:system-ui,sans-serif;display:flex;gap:14px;flex-wrap:wrap}
-article h2{font-size:20px;margin:36px 0 10px;padding-top:14px;border-top:1px solid var(--hair);
- letter-spacing:-.01em}
-article h3{font-size:16.5px;margin:24px 0 6px;color:var(--accent2)}
-article p{margin:0 0 17px}
-article p:first-of-type{font-size:18px;line-height:1.68}
-blockquote{margin:0 0 20px;padding:14px 20px;background:var(--tint);
- border-left:3px solid var(--accent);font-size:15.5px;color:var(--ink2)}
-.tw{overflow-x:auto;margin:0 0 22px}
-table{border-collapse:collapse;width:100%;min-width:420px;font-size:14.5px;
- font-family:system-ui,sans-serif}
-th,td{border-bottom:1px solid var(--hair);padding:9px 12px;text-align:left;vertical-align:top}
-th{background:var(--tint);font-size:12.5px;font-weight:700;border-bottom:1.5px solid var(--rule)}
+article{max-width:740px;margin:0 auto;padding:8px 0 20px}
+article .cat{color:var(--red);font-size:12.5px;font-weight:700;letter-spacing:.1em}
+article h1{font-family:"Noto Serif KR",serif;font-weight:800;
+ font-size:clamp(25px,4.2vw,37px);line-height:1.28;margin:9px 0 14px;letter-spacing:-.032em;
+ text-wrap:balance}
+.byline{border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:10px 0;
+ margin-bottom:24px;font-size:12.5px;color:var(--ink3);display:flex;gap:13px;flex-wrap:wrap}
+article .video{margin:0 0 26px;background:#000;aspect-ratio:16/9}
+article .video iframe{width:100%;height:100%;display:block;border:0}
+article h2{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;
+ margin:36px 0 11px;padding-top:15px;border-top:1px solid var(--hair);letter-spacing:-.02em}
+article h3{font-size:16.5px;font-weight:700;margin:24px 0 6px;color:var(--navy)}
+article p{margin:0 0 18px;font-size:17px;line-height:1.82}
+article p:first-of-type{font-size:18px}
+blockquote{margin:0 0 22px;padding:15px 20px;background:var(--tint);
+ border-left:3px solid var(--red);font-size:15.5px;color:var(--ink2)}
+.tw{overflow-x:auto;margin:0 0 24px}
+table{border-collapse:collapse;width:100%;min-width:420px;font-size:14.5px}
+th,td{border-bottom:1px solid var(--hair);padding:10px 13px;text-align:left;vertical-align:top}
+th{background:var(--tint);font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink)}
 td{font-variant-numeric:tabular-nums}
-ul,ol{margin:0 0 18px;padding-left:22px}li{margin-bottom:7px}
+ul,ol{margin:0 0 18px;padding-left:22px}li{margin-bottom:8px}
 ul.check{list-style:none;padding-left:2px}
 ul.check li{display:flex;gap:9px}
 .box{width:15px;height:15px;border:1.5px solid var(--ink3);flex:0 0 auto;margin-top:6px}
-pre{background:var(--tint);padding:12px 14px;overflow-x:auto;font-size:13.5px}
+pre{background:var(--tint);padding:13px 15px;overflow-x:auto;font-size:13.5px}
 code{font-family:ui-monospace,monospace;font-size:.9em}
 figure{margin:26px 0}
-figure img{max-width:100%;height:auto;display:block;border:1px solid var(--hair)}
-figcaption{font-size:12.5px;color:var(--ink3);margin-top:8px;padding-left:2px;
- border-left:2px solid var(--rule);padding:4px 0 4px 10px;font-family:system-ui,sans-serif}
-hr{border:0;border-top:1px solid var(--hair);margin:30px 0}
-.ad{margin:30px 0;padding:9px;border:1px dashed var(--rule);text-align:center;
- color:var(--ink3);font-size:11.5px;font-family:system-ui,sans-serif;letter-spacing:.1em}
-.more{border-top:2px solid var(--rule);margin-top:44px;padding-top:20px}
-.more h3{font-size:12px;letter-spacing:.2em;color:var(--accent);margin:0 0 14px;
- font-family:system-ui,sans-serif}
-footer.site{border-top:3px double var(--rule);margin-top:56px;padding:24px 0 60px;
- color:var(--ink3);font-size:12.5px;font-family:system-ui,sans-serif;text-align:center;line-height:1.9}
-footer.site a{color:var(--ink3);text-decoration:underline}
+figure img,figure video{max-width:100%;height:auto;display:block;width:100%}
+figcaption{font-size:12.5px;color:var(--ink3);margin-top:9px;padding:5px 0 0;
+ border-top:1px solid var(--hair)}
+hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
+.ad{margin:32px 0;padding:10px;border:1px dashed var(--rule);text-align:center;
+ color:var(--ink3);font-size:11px;letter-spacing:.18em}
+.rel{border-top:2px solid var(--ink);margin-top:44px;padding-top:18px}
+.rel h3{font-size:13px;font-weight:800;margin:0 0 14px;letter-spacing:.04em}
+
+/* 푸터 */
+footer.site{background:var(--tint);border-top:1px solid var(--rule);margin-top:40px}
+footer.site .in{max-width:1180px;margin:0 auto;padding:26px 20px 46px;font-size:12.5px;
+ color:var(--ink3);line-height:1.95}
+footer.site .brand{font-family:"Noto Serif KR",serif;font-weight:800;font-size:17px;
+ color:var(--ink);margin-bottom:8px}
+footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:10px;
+ padding-top:12px;border-top:1px solid var(--rule)}
+footer.site a{text-decoration:underline}
 </style>
 </head><body>
+<div class="util"><div class="in"><span>2026년 08월 28일</span>
+<span>원자료로 검증하는 경제·정책·역사</span></div></div>
 <div class="wrap">
 <header class="masthead">
-  <div class="kicker">원자료로 검증하는 경제·정책·역사</div>
-  <h1><a href="/">데이터노트</a></h1>
-  <div class="sub"><span>2026년 08월 28일</span><span>·</span><span>원자료 직접 집계</span></div>
+  <a class="logo" href="/"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+<rect x="1.5" y="1.5" width="37" height="37" rx="2" fill="none"
+      stroke="currentColor" stroke-width="2.2"/>
+<path d="M9 29 V15 M16 29 V11 M23 29 V19" stroke="currentColor" stroke-width="2.6"
+      stroke-linecap="square"/>
+<path d="M25 22.5 L29.5 27 L37 15" fill="none" stroke="var(--red)" stroke-width="3.4"
+      stroke-linecap="square" stroke-linejoin="miter"/>
+</svg><span>
+    <div class="name">데이터노트</div>
+    <div class="en">DATANOTE</div></span></a>
 </header>
-<nav class="desks"><div class="in"><a href="/desk-경제.html" class="">경제</a><a href="/desk-정책.html" class="">정책</a><a href="/desk-기록.html" class="on">기록</a><a href="/about.html">소개</a></div></nav>
-<article><span class="tag">기록</span><h1>330일이 90일로</h1><div class="byline"><span>2026년 08월 28일</span><span>·</span><span>원자료 직접 집계</span></div><div class="ad">광고</div><p>국회가 법안 심사 기간을 줄이는 법을 처리했습니다. 최장 330일이던 것이 90일이 됩니다. 상임위 180일은 60일로, 법사위 90일은 30일로 줄었습니다.</p>
+<nav class="gnb"><div class="in"><a href="/" class="">1면</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="">정책</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="on">기록</a><a href="/about.html">소개</a></div></nav>
+<main><article><span class="cat">기록</span><h1>330일이 90일로</h1><div class="byline"><span>2026년 08월 28일</span><span>·</span><span>데이터노트</span><span>·</span><span>원자료 직접 집계</span></div><div class="ad">광고</div><p>국회가 법안 심사 기간을 줄이는 법을 처리했습니다. 최장 330일이던 것이 90일이 됩니다. 상임위 180일은 60일로, 법사위 90일은 30일로 줄었습니다.</p>
 <p>빨리 가자는 쪽과 그러면 제대로 못 본다는 쪽이 맞섰고, 반대편은 이틀 연속 필리버스터를 했습니다.</p>
 <p>600년 전 조선에서도 같은 다툼이 있었습니다. 다만 화가 난 쪽이 반대였습니다.</p>
 <h2>하루 만에 끝난 것이 문제였다</h2>
@@ -144,7 +182,7 @@ footer.site a{color:var(--ink3);text-decoration:underline}
 <p>12년 뒤, 순금사 겸판사 박은이 아룁니다. 육전을 살펴보니 사형죄는 세 번 심리하게 되어 있는데, 지금 형조와 순금사가 그렇게 하지 않고 있다고요.</p>
 <p>임금이 답합니다. 그렇다. 앞으로 형관은 마땅히 거행하라.</p>
 <p>법은 12년째 그 자리에 있었는데, 다시 하라고 명령해야 했습니다.</p>
-<div class="ad">광고 자리</div><h2>세 번 본 덕에 한 사람이 살았다</h2>
+<div class="ad">광고</div><h2>세 번 본 덕에 한 사람이 살았다</h2>
 <p>2년 더 지나, 한 아전이 관인을 몰래 쓴 죄로 참형을 받게 됩니다. 그 어머니가 외아들이니 목숨만은 살려 달라고 호소합니다.</p>
 <p>의논 끝에 살려 주기로 하고, 임금이 말합니다. 이것은 세 번 아뢴 덕에 살게 된 것이다.</p>
 <p>한 번에 끝냈으면 죽었을 사람이었습니다. 세 번 보는 동안 사정이 드러났습니다. 조선은 이 일을 계기로 외아들에 관한 조항을 판결마다 함께 적어 올리도록 정합니다.</p>
@@ -162,11 +200,16 @@ footer.site a{color:var(--ink3);text-decoration:underline}
 <h3>세 번 아뢰는 법, 숫자로는 어떻게 되나요?</h3>
 <p>실록에 855건 나옵니다.</p>
 <h2>출처</h2>
-<p>· 집계 근거 | 항목 | 값 | 출전 | |---|---|---| | 「다시 논의」 更議·再議 | 3,462건 | 조선왕조실록 정본 348,925기사 | | 「세 번 심리」 三覆·詳覆 | 855건 | 〃 | | 「지체된다」 遲滯·淹滯 | 868건 | 〃 | | 「빨리 처결」 速決·亟決 | 278건 | 〃 | | 하루 만의 처결을 문제 삼음 | 1401년 2월 10일 | 태종실록 | | 「지금 하지 않고 있다」 | 1413년 8월 30일 | 태종실록 · 박은 | | 「세 번 아뢴 덕에 살았다」 | 1415년 8월 18일 | 태종실록 | | 재심사·재의·숙려 7,079 · 신속처리 629 · 계류 3,794 | | 제21~22대 국회회의록 | | 사진 | 진연의궤 | 국립중앙박물관 · 공공누리 제1유형 | 집계 코드: <code>스크립트/count_오늘3편.py</code></p></article>
-<footer class="site">
-  <div><strong>데이터노트</strong> · 원자료로 검증하는 경제·정책·역사</div>
-  <div><a href="/about.html">소개</a> · <a href="/contact.html">연락처</a> ·
+<p>· 집계 근거 | 항목 | 값 | 출전 | |---|---|---| | 「다시 논의」 更議·再議 | 3,462건 | 조선왕조실록 정본 348,925기사 | | 「세 번 심리」 三覆·詳覆 | 855건 | 〃 | | 「지체된다」 遲滯·淹滯 | 868건 | 〃 | | 「빨리 처결」 速決·亟決 | 278건 | 〃 | | 하루 만의 처결을 문제 삼음 | 1401년 2월 10일 | 태종실록 | | 「지금 하지 않고 있다」 | 1413년 8월 30일 | 태종실록 · 박은 | | 「세 번 아뢴 덕에 살았다」 | 1415년 8월 18일 | 태종실록 | | 재심사·재의·숙려 7,079 · 신속처리 629 · 계류 3,794 | | 제21~22대 국회회의록 | | 사진 | 진연의궤 | 국립중앙박물관 · 공공누리 제1유형 | 집계 코드: <code>스크립트/count_오늘3편.py</code></p></article></main>
+</div>
+<footer class="site"><div class="in">
+  <div class="brand">데이터노트</div>
+  <div>원자료로 검증하는 경제·정책·역사</div>
+  <div>모든 수치는 공표 통계와 원문 기록에서 직접 집계했습니다.
+       기사마다 자료 출처와 집계 방법을 밝힙니다.</div>
+  <div style="margin-top:8px"><a href="/about.html">소개</a> ·
+       <a href="/contact.html">연락처</a> ·
        <a href="/privacy.html">개인정보처리방침</a></div>
-  <div>모든 수치는 공표 통계와 원문 기록에서 직접 집계했습니다. 기사마다 자료와 방법을 밝힙니다.</div>
-</footer>
-</div></body></html>
+  
+</div></footer>
+</body></html>
