@@ -304,12 +304,12 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
  max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
 .side-slot{min-height:1px}
+.main-col{min-width:0}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
  .side-slot{display:none}}
 
-aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
- overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
- -webkit-overflow-scrolling:touch}
+aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,7 +462,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>그린벨트 7만 3천 가구…오백 년 전엔 그 안 사람을 내보냈다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>그린벨트 7만 3천 가구…오백 년 전엔 그 안 사람을 내보냈다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>모조리 찾아내 내보내라</td><td>연산군일기 · 1504년 7월 18일</td></tr><tr><td>백 보에 지나지 않는데</td><td>성종실록 · 1478년 7월 23일</td></tr><tr><td>지키는 자가 뜯어 갔다</td><td>성종실록 · 1488년 7월 9일</td></tr><tr><td>알지도 못하고 하는 말이다</td><td>연산군일기 · 1504년 4월 19일</td></tr><tr><td>도성 밖 전체</td><td>연산군일기 · 1504년 7월 15일</td></tr><tr><td>민가는 모두 헐었습니다</td><td>연산군일기 · 1504년 7월 21일</td></tr></tbody></table></div>
 <h2>모조리 찾아내 내보내라</h2>
 <p>집을 못 짓게 묶어 둔 땅을 어디까지 풀 것이냐가 요즘 이야기입니다. 그린벨트 말입니다. 서울은 빼고 경기도에서만 풀어 7만 3천 가구를 짓기로 오늘 정해졌습니다.</p>
@@ -643,20 +643,6 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
-  }
-
-  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
-  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
-  if (side && slot) {
-    function place(){
-      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
-      var r = slot.getBoundingClientRect();
-      side.style.left = r.left + 'px';
-      side.style.width = r.width + 'px';
-    }
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('load', place);
   }
 
   // 맨 위로

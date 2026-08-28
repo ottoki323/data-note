@@ -304,12 +304,12 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
  max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
 .side-slot{min-height:1px}
+.main-col{min-width:0}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
  .side-slot{display:none}}
 
-aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
- overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
- -webkit-overflow-scrolling:touch}
+aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,7 +462,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>제주 실종신고 허위종결…2026년 1시간 내 해제 53.6% 최고</h1><div class="video"><iframe src="https://www.youtube.com/embed/Z9vfg2YKtXU" title="제주 실종신고 허위종결…2026년 1시간 내 해제 53.6% 최고" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>제주 실종신고 허위종결…2026년 1시간 내 해제 53.6% 최고</h1><div class="video"><iframe src="https://www.youtube.com/embed/Z9vfg2YKtXU" title="제주 실종신고 허위종결…2026년 1시간 내 해제 53.6% 최고" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>항목</th><th>값</th><th>비고</th></tr></thead><tbody><tr><td>성인 실종 접수</td><td>2022년 74,936 · 2023년 74,847 · 2024년 71,854 · 2025년 70,814</td><td>국회 행안위 제출자료</td></tr><tr><td>2026년 접수</td><td>41,894건 (1~7월)</td><td><strong>연간값과 나란히 그리지 않았다</strong> — 부분값이라 「반토막」으로 읽힌다</td></tr><tr><td>1시간 내 해제율</td><td>41.7 → 43.9 → 46.5 → 48.1 → <strong>53.6</strong>%</td><td>2026년은 7월까지</td></tr><tr><td>2025년 누적 해제</td><td>1h 48.1 · 3h 64.9 · 6h 75.2 · 12h 82.9 · 1일 89.4 · 2일 93.9 · 4일 95.1 · 7일 97.1 · 30일 99.0</td><td>모션은 6개 구간만 씀</td></tr><tr><td>미해제</td><td>누적 6,605건 · 2025년 말 765건 중 441건 잔존</td><td>낭독은 「6,600건이 넘는다」·「절반이 넘는 수」 — <strong>441 을 「411」로 읽어</strong> 낭독에서 뺐다(441/765 = 57.6%)</td></tr><tr><td>사망 발견</td><td>931건 (2025년 해제분 중)</td><td>931/365 = 2.55</td></tr><tr><td>사건 처리 시간</td><td>5/15 18:43 접수 → 21:16 종결 = 2시간 33분</td><td>보도 기준</td></tr></tbody></table></div>
 <h2>5월 15일 저녁</h2>
 <figure><img src="/img/01_hero.png" alt="원자료로 직접 작성한 도표입니다" loading="lazy"><figcaption>원자료로 직접 작성한 도표입니다</figcaption></figure>
@@ -512,7 +512,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
 <h3>성인 실종 신고는 한 해 7만 건, 숫자로는 어떻게 되나요?</h3>
 <p>4년째 조금씩 줄고 있습니다. 2026년에도 비슷한 속도입니다.</p>
 <h2>출처</h2>
-<p>경찰청 실종 신고 자료와 경찰청 범죄통계를 참고했습니다. 실종 통계는 2026년 8월 24일 보도된 값이고, 공무원 범죄는 2022년이 마지막 공표분입니다.</p>
+<p>범죄통계을 참고했습니다.</p>
 <h2>서술 원칙</h2>
 <p>수사 중인 사건이므로 ①②⑨절은 보도된 사실까지만 쓴다. 개인 이름·혐의 판단· 기관 평가·정책 처방·예측은 넣지 않는다. 나머지 절은 전부 공표 통계이고 발표일을 화면에 밝힌다.</p></article><section class="rel"><h3>경제 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/%EA%B0%80%EA%B3%84%EC%86%8C%EB%93%9D.html"><div class="rt"><img src="/img/03_%EA%B5%AC%EC%84%B1.png" alt="" loading="lazy"></div><h4>2026년 2분기 소득 4.5% 늘었다…일해서 번 돈은 0.8%</h4></a><a class="rc" href="/%EA%B3%BC%EC%9D%BC%EA%B0%92.html"><div class="rt"><img src="https://i.ytimg.com/vi/N1oFHoN-9lM/mqdefault.jpg" alt="" loading="lazy"></div><h4>폭염에 밥상 물가 들썩…2025년 과일값, 2020년보다 49% 올랐다</h4></a><a class="rc" href="/%EA%B7%BC%EC%9B%90%EB%AC%BC%EA%B0%80.html"><div class="rt"><img src="https://i.ytimg.com/vi/NnHIlPpT3tM/mqdefault.jpg" alt="" loading="lazy"></div><h4>한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고</h4></a><a class="rc" href="/%EB%AC%BC%EA%B0%80.html"><div class="rt"><img src="https://i.ytimg.com/vi/QiqogsWwmNI/mqdefault.jpg" alt="" loading="lazy"></div><h4>한은 &quot;8월 물가 다시 오른다&quot;</h4></a></div></section><nav class="pn"><a href="/%EC%84%9C%EA%B2%BD.html"><span>← 이전 기록</span><b>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</b></a><a class="nx" href="/%EC%8B%AC%EC%82%AC%EA%B8%B0%EA%B0%84.html"><span>다음 기록 →</span><b>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</b></a></nav></div></div>
 <footer class="site"><div class="in">
@@ -651,20 +651,6 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
-  }
-
-  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
-  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
-  if (side && slot) {
-    function place(){
-      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
-      var r = slot.getBoundingClientRect();
-      side.style.left = r.left + 'px';
-      side.style.width = r.width + 'px';
-    }
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('load', place);
   }
 
   // 맨 위로

@@ -304,12 +304,12 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
  max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
 .side-slot{min-height:1px}
+.main-col{min-width:0}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
  .side-slot{display:none}}
 
-aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
- overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
- -webkit-overflow-scrolling:touch}
+aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,7 +462,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>2분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>엔비디아 실적 넷 다 컨센서스 상회, 그런데 처음엔 주가가 빠졌다</h1><div class="ad">광고</div><h2>간밤 미국장은 조용했습니다</h2>
+<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>2분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>엔비디아 실적 넷 다 컨센서스 상회, 그런데 처음엔 주가가 빠졌다</h1><div class="ad">광고</div><h2>간밤 미국장은 조용했습니다</h2>
 <figure><img src="/img/01_지수.png" alt="원자료로 직접 작성한 도표입니다" loading="lazy"><figcaption>원자료로 직접 작성한 도표입니다</figcaption></figure>
 <p>간밤 뉴욕 증시 세 지수는 나란히 소폭 내렸습니다. 에스앤피 오백은 마이너스 영 점 일이 퍼센트. 다우는 마이너스 영 점 영팔 퍼센트, 나스닥은 마이너스 영 점 일육 퍼센트였습니다. 칠월 물가가 예상보다 높게 나온 것이 부담이었습니다. 다들 장 마감 뒤에 나올 엔비디아만 기다린 하루였습니다.</p>
 <h2>숫자는 넷 다 이겼습니다</h2>
@@ -614,20 +614,6 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
-  }
-
-  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
-  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
-  if (side && slot) {
-    function place(){
-      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
-      var r = slot.getBoundingClientRect();
-      side.style.left = r.left + 'px';
-      side.style.width = r.width + 'px';
-    }
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('load', place);
   }
 
   // 맨 위로

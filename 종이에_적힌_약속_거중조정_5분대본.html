@@ -304,12 +304,12 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
  max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
 .side-slot{min-height:1px}
+.main-col{min-width:0}
 @media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
  .side-slot{display:none}}
 
-aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
- overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
- -webkit-overflow-scrolling:touch}
+aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,7 +462,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>6분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄」</h1><div class="video"><iframe src="https://www.youtube.com/embed/EVDVERZBBWw" title="종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>6분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄」</h1><div class="video"><iframe src="https://www.youtube.com/embed/EVDVERZBBWw" title="종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>반드시 서로 돕는다</td><td>고종실록 · 1882년 4월 6일 · 조미조약 제1관</td></tr><tr><td>같은 문장을 여섯 번 더</td><td>고종실록 · 1883년 10월 27일 · 조영조약 제1관</td></tr><tr><td>처음 써 보다</td><td>고종실록 · 1885년 4월 7일</td></tr><tr><td>끝내 이루지 못했다</td><td>매천야록 · 1894년</td></tr><tr><td>먼저 떠난다고 말했다</td><td>속음청사 · 1905년 12월 8일</td></tr><tr><td>공관을 거두다</td><td>속음청사 · 1905년 12월 16일</td></tr><tr><td>각 공관이 거두어지다</td><td>속음청사 · 1905년 12월 30일</td></tr></tbody></table></div>
 <h2>반드시 서로 돕는다</h2>
 <p>종이에 적어 둔 약속은 언제까지 지켜질까요. 조선이 그걸 시험해 본 적이 있습니다.</p>
@@ -668,20 +668,6 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
-  }
-
-  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
-  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
-  if (side && slot) {
-    function place(){
-      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
-      var r = slot.getBoundingClientRect();
-      side.style.left = r.left + 'px';
-      side.style.width = r.width + 'px';
-    }
-    place();
-    window.addEventListener('resize', place);
-    window.addEventListener('load', place);
   }
 
   // 맨 위로
