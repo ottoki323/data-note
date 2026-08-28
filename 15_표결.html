@@ -305,15 +305,18 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 /* ── 2단 레이아웃 (사이드바 + 본문) ── */
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
- max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
+.side-slot{min-height:1px}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
+ .side-slot{display:none}}
 
-aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
- padding:4px 0 26px;scrollbar-width:thin}
+aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
+ overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
+ -webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-@media(max-width:900px){aside.side{position:static;max-height:none;
- border-bottom:1px solid var(--line);margin-bottom:24px}}
+@media(max-width:900px){aside.side{position:static;width:auto;height:auto;
+ border-bottom:1px solid var(--line);margin-bottom:24px;padding-bottom:18px}}
 .side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
  font-weight:700}
 .side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
@@ -462,7 +465,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><aside class="side"></aside><div><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>국회 표결 8,420건 가운데 5,632건은 반대가 0이었다</h1><div class="ad">광고</div><h2>싸우는 국회</h2>
+<div class="shell"><div class="side-slot"></div><div><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>국회 표결 8,420건 가운데 5,632건은 반대가 0이었다</h1><div class="ad">광고</div><h2>싸우는 국회</h2>
 <figure><img src="/img/01_hero.png" alt="원자료로 직접 작성한 도표입니다" loading="lazy"><figcaption>원자료로 직접 작성한 도표입니다</figcaption></figure>
 <p>국회 소식은 대체로 다투는 장면으로 전해집니다. 고성이 오가고 의사봉을 두고 실랑이가 벌어집니다. 회의장을 나가는 장면도 자주 나옵니다. 그런데 실제로 표결한 기록을 세어 보면 다른 그림이 나옵니다. 제20대 국회 이후 본회의에서 이뤄진 표결을 모두 세었습니다. 찬성이 몇 표였고 반대가 몇 표였는지가 안건마다 남아 있습니다.</p>
 <h2>셋 중 둘은 반대가 없었습니다</h2>
@@ -626,6 +629,20 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
+  }
+
+  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
+  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
+  if (side && slot) {
+    function place(){
+      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
+      var r = slot.getBoundingClientRect();
+      side.style.left = r.left + 'px';
+      side.style.width = r.width + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
   }
 
   // 맨 위로

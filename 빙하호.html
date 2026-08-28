@@ -303,15 +303,18 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 /* ── 2단 레이아웃 (사이드바 + 본문) ── */
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
- max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
+.side-slot{min-height:1px}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
+ .side-slot{display:none}}
 
-aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
- padding:4px 0 26px;scrollbar-width:thin}
+aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
+ overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
+ -webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-@media(max-width:900px){aside.side{position:static;max-height:none;
- border-bottom:1px solid var(--line);margin-bottom:24px}}
+@media(max-width:900px){aside.side{position:static;width:auto;height:auto;
+ border-bottom:1px solid var(--line);margin-bottom:24px;padding-bottom:18px}}
 .side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
  font-weight:700}
 .side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
@@ -460,7 +463,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><aside class="side"></aside><div><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>네팔 홍수 95명 사망…같은 강에서 10년 새 세 번째였다</h1><div class="video"><iframe src="https://www.youtube.com/embed/uPcIcVcdwiE" title="네팔 홍수 95명 사망…같은 강에서 10년 새 세 번째였다" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"></div><div><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>네팔 홍수 95명 사망…같은 강에서 10년 새 세 번째였다</h1><div class="video"><iframe src="https://www.youtube.com/embed/uPcIcVcdwiE" title="네팔 홍수 95명 사망…같은 강에서 10년 새 세 번째였다" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>항목</th><th>값</th><th>비고</th></tr></thead><tbody><tr><td>이번 피해</td><td>사망 95명 · 연락두절 403명 · 한국인 9명</td><td>2026-08-27 00:00 기준. <strong>집계가 계속 바뀐다</strong></td></tr><tr><td>수위</td><td>몇 분 만에 8~10m</td><td>보도 기준</td></tr><tr><td>네팔 빙하호</td><td>2,420개</td><td>ICIMOD·UNDP 2020</td></tr><tr><td>위험 빙하호(PDGL)</td><td>47개 = 중국 25 · 네팔 21 · 인도 1</td><td>코시·간다키·카르날리 3개 유역</td></tr><tr><td>3개 유역 빙하호</td><td>3,624개 (네팔 2,070)</td><td>같은 조사</td></tr><tr><td>같은 강 이력</td><td>2016.7 (9명 사망·20명 실종) · 2025.7 (미테리 다리 유실) · 2026.8</td><td>보테코시(렌데콜라) · 라수와</td></tr></tbody></table></div>
 <h2>8월 26일 아침</h2>
 <p>8월 26일 아침, 네팔 북쪽 국경 마을을 물이 덮쳤습니다. 2026년 일입니다.</p>
@@ -650,6 +653,20 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
+  }
+
+  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
+  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
+  if (side && slot) {
+    function place(){
+      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
+      var r = slot.getBoundingClientRect();
+      side.style.left = r.left + 'px';
+      side.style.width = r.width + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
   }
 
   // 맨 위로

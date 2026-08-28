@@ -301,15 +301,18 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 /* ── 2단 레이아웃 (사이드바 + 본문) ── */
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
- max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
+.side-slot{min-height:1px}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
+ .side-slot{display:none}}
 
-aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
- padding:4px 0 26px;scrollbar-width:thin}
+aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
+ overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
+ -webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-@media(max-width:900px){aside.side{position:static;max-height:none;
- border-bottom:1px solid var(--line);margin-bottom:24px}}
+@media(max-width:900px){aside.side{position:static;width:auto;height:auto;
+ border-bottom:1px solid var(--line);margin-bottom:24px;padding-bottom:18px}}
 .side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
  font-weight:700}
 .side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
@@ -458,7 +461,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><aside class="side"></aside><div><article><h1>연락처</h1><div class="byline"><span>데이터 블로그</span></div><p>문의, 오류 제보, 제안을 받습니다.</p>
+<div class="shell"><div class="side-slot"></div><div><article><h1>연락처</h1><div class="byline"><span>데이터 블로그</span></div><p>문의, 오류 제보, 제안을 받습니다.</p>
 <p><strong>이메일</strong>: ottoki323@gmail.com</p>
 <h2>이런 연락을 환영합니다</h2>
 <ul><li>글에서 발견한 사실 오류 — 가격, 규격, 절차가 바뀌었거나 틀린 경우</li><li>다뤄줬으면 하는 주제</li><li>실제 사용 경험 공유</li></ul>
@@ -602,6 +605,20 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
+  }
+
+  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
+  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
+  if (side && slot) {
+    function place(){
+      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
+      var r = slot.getBoundingClientRect();
+      side.style.left = r.left + 'px';
+      side.style.width = r.width + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
   }
 
   // 맨 위로

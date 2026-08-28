@@ -303,15 +303,18 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 /* ── 2단 레이아웃 (사이드바 + 본문) ── */
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
- max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
+.side-slot{min-height:1px}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
+ .side-slot{display:none}}
 
-aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
- padding:4px 0 26px;scrollbar-width:thin}
+aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
+ overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
+ -webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-@media(max-width:900px){aside.side{position:static;max-height:none;
- border-bottom:1px solid var(--line);margin-bottom:24px}}
+@media(max-width:900px){aside.side{position:static;width:auto;height:auto;
+ border-bottom:1px solid var(--line);margin-bottom:24px;padding-bottom:18px}}
 .side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
  font-weight:700}
 .side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
@@ -460,7 +463,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><aside class="side"></aside><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>근정전 뜰에 범이 들어왔다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"></div><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>근정전 뜰에 범이 들어왔다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>도심에 나타난 짐승</td><td>태조실록 · 1392년 12월 20일</td></tr><tr><td>근정전 뜰까지</td><td>태종실록 · 1405년 7월 25일</td></tr><tr><td>마을 사람들이 잡았다</td><td>태조실록 · 1393년 2월 16일</td></tr><tr><td>나라가 부대를 만들었다</td><td>세종실록 · 1421년 3월 14일</td></tr><tr><td>다섯 마리를 잡으면</td><td>세종실록 · 1422년 12월 21일</td></tr><tr><td>활 하나 창 하나</td><td>세종실록 · 1425년 6월 27일</td></tr><tr><td>잡다 죽은 사람</td><td>세종실록 · 1423년 7월 9일</td></tr><tr><td>활이 녹아 있었다</td><td>문종실록 · 1451년 6월 21일</td></tr><tr><td>사칭한 자들</td><td>태종실록 · 1416년 10월 27일</td></tr><tr><td>사람을 다치지 않고</td><td>태종실록 · 1405년 5월 2일</td></tr></tbody></table></div>
 <h2>도심에 나타난 짐승</h2>
 <p>도심에 짐승이 나타났다는 소식이 있었습니다. 열하루 만에 잡았다고 합니다. 조선에서는 그 짐승이 범이었습니다. 나라를 세운 그해 섣달, 범이 성 안에 들어왔습니다. 흥국리에 사는 사람이 활로 쏘아 죽였다고 실록은 적었습니다. 관군이 아니라 동네 사람이었습니다.</p>
@@ -631,6 +634,20 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
+  }
+
+  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
+  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
+  if (side && slot) {
+    function place(){
+      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
+      var r = slot.getBoundingClientRect();
+      side.style.left = r.left + 'px';
+      side.style.width = r.width + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
   }
 
   // 맨 위로

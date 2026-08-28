@@ -307,15 +307,18 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 /* ── 2단 레이아웃 (사이드바 + 본문) ── */
 .shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
- max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
-@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start;position:relative}
+.side-slot{min-height:1px}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}
+ .side-slot{display:none}}
 
-aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
- padding:4px 0 26px;scrollbar-width:thin}
+aside.side{position:fixed;top:70px;width:236px;height:calc(100vh - 86px);
+ overflow-y:auto;padding:6px 2px 26px;scrollbar-width:thin;
+ -webkit-overflow-scrolling:touch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
-@media(max-width:900px){aside.side{position:static;max-height:none;
- border-bottom:1px solid var(--line);margin-bottom:24px}}
+@media(max-width:900px){aside.side{position:static;width:auto;height:auto;
+ border-bottom:1px solid var(--line);margin-bottom:24px;padding-bottom:18px}}
 .side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
  font-weight:700}
 .side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
@@ -464,7 +467,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><aside class="side"></aside><div><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건</h1><div class="video"><iframe src="https://www.youtube.com/embed/C1QNPMlQjfU" title="2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건 64번 중 2번" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><p>64번 중 2번</p>
+<div class="shell"><div class="side-slot"></div><div><article data-desk="정책"><div class="meta"><span class="kind">정책</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건</h1><div class="video"><iframe src="https://www.youtube.com/embed/C1QNPMlQjfU" title="2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건 64번 중 2번" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><p>64번 중 2번</p>
 <h2>다음 달에 넘어옵니다</h2>
 <figure><img src="/img/01_hero.png" alt="원자료로 직접 작성한 도표입니다" loading="lazy"><figcaption>원자료로 직접 작성한 도표입니다</figcaption></figure>
 <p>정부가 2027년도 예산안을 다음 달 2일까지 국회에 내야 합니다. 국가재정법이 회계연도가 시작되기 120일 전까지 제출하도록 정해 놓았기 때문입니다. 해마다 이맘때 반복되는 일정입니다. 그래서 세어봤습니다. 정부가 낸 예산안을 국회는 그동안 어떻게 처리해 왔을까요.</p>
@@ -628,6 +631,20 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
         window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
       }
     });
+  }
+
+  // 고정 사이드바 — 본문 그리드에 좌표를 맞춘다
+  var side = document.querySelector('aside.side'), slot = document.querySelector('.side-slot');
+  if (side && slot) {
+    function place(){
+      if (window.innerWidth <= 900) { side.style.left = ''; side.style.width = ''; return; }
+      var r = slot.getBoundingClientRect();
+      side.style.left = r.left + 'px';
+      side.style.width = r.width + 'px';
+    }
+    place();
+    window.addEventListener('resize', place);
+    window.addEventListener('load', place);
   }
 
   // 맨 위로
