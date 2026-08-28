@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://ottoki323.github.io/data-note/sitemap.xml
