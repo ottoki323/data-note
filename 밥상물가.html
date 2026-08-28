@@ -224,6 +224,85 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .ch .go2{font-size:12px;color:var(--c,var(--blue));font-weight:600;margin-top:6px;
  display:inline-block}
 
+
+/* ── 검색 ── */
+.srch{position:relative;margin-bottom:26px}
+.srch input{width:100%;padding:14px 18px 14px 46px;font-size:15px;border-radius:12px;
+ border:1.5px solid var(--line);background:var(--bg);color:var(--ink);
+ font-family:inherit;transition:.2s}
+.srch input:focus{outline:0;border-color:var(--blue);box-shadow:0 0 0 4px rgba(11,95,208,.1)}
+.srch::before{content:"";position:absolute;left:17px;top:50%;width:16px;height:16px;
+ transform:translateY(-50%);opacity:.45;
+ background:currentColor;-webkit-mask:var(--mag) center/contain no-repeat;
+ mask:var(--mag) center/contain no-repeat}
+:root{--mag:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.4'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-4-4'/%3E%3C/svg%3E")}
+.srch .cnt{position:absolute;right:16px;top:50%;transform:translateY(-50%);
+ font-size:12.5px;color:var(--ink3)}
+.row.hide,.pick.hide{display:none}
+.noresult{padding:40px 0;text-align:center;color:var(--ink3);font-size:15px;display:none}
+
+/* ── 더 보기 ── */
+.more-wrap{text-align:center;margin:8px 0 44px}
+.more-btn{display:inline-flex;align-items:center;gap:9px;padding:13px 30px;
+ border:1.5px solid var(--line);border-radius:26px;font-size:14.5px;font-weight:600;
+ color:var(--ink2);background:var(--bg);cursor:pointer;font-family:inherit;transition:.22s}
+.more-btn:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px);
+ box-shadow:0 6px 20px rgba(11,95,208,.13)}
+
+/* ── 기사 목차 ── */
+.toc{background:var(--alt);border-radius:12px;padding:20px 24px;margin:0 0 30px;
+ border:1px solid var(--hair)}
+.toc b{display:block;font-size:12px;letter-spacing:.14em;color:var(--c,var(--blue));
+ margin-bottom:12px;font-weight:700}
+.toc ol{margin:0;padding-left:19px;font-size:14.5px}
+.toc li{margin-bottom:7px;color:var(--ink2)}
+.toc a:hover{color:var(--c,var(--blue))}
+@media(max-width:700px){.toc{padding:16px 18px}}
+
+/* ── 읽기 진행 막대 ── */
+.prog{position:fixed;top:0;left:0;height:3px;background:var(--c,var(--blue));z-index:50;
+ width:0;transition:width .1s linear}
+
+/* ── 공유 ── */
+.share{display:flex;gap:9px;align-items:center;margin:34px 0 8px;flex-wrap:wrap}
+.share span{font-size:12.5px;color:var(--ink3);margin-right:3px}
+.share button{width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);
+ background:var(--bg);color:var(--ink2);cursor:pointer;display:flex;align-items:center;
+ justify-content:center;font-size:13px;font-weight:600;transition:.2s;font-family:inherit}
+.share button:hover{border-color:var(--c,var(--blue));color:var(--c,var(--blue));
+ transform:translateY(-2px)}
+
+/* ── 관련 글 ── */
+.rel{border-top:2px solid var(--line);margin-top:48px;padding-top:26px}
+.rel h3{font-size:13px;letter-spacing:.12em;color:var(--c,var(--blue));margin:0 0 18px;
+ font-weight:700}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.rc{display:block;transition:.22s}
+.rc .rt{aspect-ratio:16/9;border-radius:9px;overflow:hidden;background:var(--alt);
+ margin-bottom:9px;border:1px solid var(--hair)}
+.rc .rt img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.rc:hover .rt img{transform:scale(1.06)}
+.rc h4{margin:0;font-size:14.5px;line-height:1.44;letter-spacing:-.022em;font-weight:600}
+.rc:hover h4{color:var(--c,var(--blue))}
+.rc:hover{transform:translateY(-2px)}
+
+/* ── 이전·다음 ── */
+.pn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:34px}
+@media(max-width:600px){.pn{grid-template-columns:1fr}}
+.pn a{padding:16px 19px;border:1px solid var(--line);border-radius:12px;transition:.22s}
+.pn a:hover{border-color:var(--blue);background:var(--alt)}
+.pn span{font-size:11.5px;color:var(--ink3);display:block;margin-bottom:5px}
+.pn b{font-size:14.5px;font-weight:600;line-height:1.42;display:block}
+.pn .nx{text-align:right}
+
+/* ── 맨 위로 ── */
+.top-btn{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;
+ background:var(--blue);color:#fff;border:0;cursor:pointer;font-size:17px;z-index:45;
+ opacity:0;pointer-events:none;transition:.25s;box-shadow:0 6px 20px rgba(11,95,208,.35)}
+.top-btn.on{opacity:1;pointer-events:auto}
+.top-btn:hover{transform:translateY(-3px)}
+@media(prefers-reduced-motion:reduce){.prog{transition:none}}
+
 /* ── 스크롤 등장 ── */
 .reveal{opacity:0;transform:translateY(20px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
@@ -326,7 +405,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
 <h3>과일과 채소는 내렸습니다, 숫자로는 어떻게 되나요?</h3>
 <p>1년 전과 견준 등락률입니다. 신선과실은 4.7% 내렸습니다.</p>
 <h2>출처</h2>
-<p>국가데이터처 2026년 7월 소비자물가동향(2026년 8월 4일 발표)과 소비자물가지수 연간 자료를 참고했습니다. 사진은 위키미디어 공용의 CC0 자료입니다.</p></article></div>
+<p>국가데이터처 2026년 7월 소비자물가동향(2026년 8월 4일 발표)과 소비자물가지수 연간 자료를 참고했습니다. 사진은 위키미디어 공용의 CC0 자료입니다.</p></article><section class="rel"><h3>경제 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/%EA%B0%80%EA%B3%84%EC%86%8C%EB%93%9D.html"><div class="rt"><img src="/img/03_%EA%B5%AC%EC%84%B1.png" alt="" loading="lazy"></div><h4>2026년 2분기 소득 4.5% 늘었다…일해서 번 돈은 0.8%</h4></a><a class="rc" href="/%EA%B3%BC%EC%9D%BC%EA%B0%92.html"><div class="rt"><img src="https://i.ytimg.com/vi/N1oFHoN-9lM/mqdefault.jpg" alt="" loading="lazy"></div><h4>폭염에 밥상 물가 들썩…2025년 과일값, 2020년보다 49% 올랐다</h4></a><a class="rc" href="/%EA%B7%BC%EC%9B%90%EB%AC%BC%EA%B0%80.html"><div class="rt"><img src="https://i.ytimg.com/vi/NnHIlPpT3tM/mqdefault.jpg" alt="" loading="lazy"></div><h4>한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고</h4></a><a class="rc" href="/%EB%AC%BC%EA%B0%80.html"><div class="rt"><img src="https://i.ytimg.com/vi/QiqogsWwmNI/mqdefault.jpg" alt="" loading="lazy"></div><h4>한은 &quot;8월 물가 다시 오른다&quot;</h4></a></div></section><nav class="pn"><a href="/%EB%B0%98%EC%A2%8C.html"><span>← 이전 기록</span><b>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</b></a><a class="nx" href="/%EB%B2%94_%EA%B7%BC%EC%A0%95%EC%A0%84_5%EB%B6%84%EB%8C%80%EB%B3%B8.html"><span>다음 기록 →</span><b>근정전 뜰에 범이 들어왔다</b></a></nav></div>
 <footer class="site"><div class="in">
   <div class="fb"><img src="/brand/logo_80.png" alt=""><b>데이터 블로그</b></div>
   <div>숫자로 세상을 읽습니다</div>
@@ -339,22 +418,145 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
 </div></footer>
 <script>
 (function(){
-  var m = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (m || !('IntersectionObserver' in window)) return;
-  document.querySelectorAll('.row,.pick,.picks,.filters').forEach(function(el){
-    el.classList.add('reveal');
-  });
-  var io = new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if (!e.isIntersecting) return;
-      e.target.classList.add('in');
-      io.unobserve(e.target);
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 스크롤 등장
+  if (!reduce && 'IntersectionObserver' in window) {
+    document.querySelectorAll('.row,.pick,.picks,.filters').forEach(function(el){
+      el.classList.add('reveal');
     });
-  }, {rootMargin: '0px 0px -40px 0px', threshold: 0.05});
-  document.querySelectorAll('.reveal').forEach(function(el, i){
-    el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
-    io.observe(el);
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      });
+    }, {rootMargin: '0px 0px -40px 0px', threshold: 0.05});
+    document.querySelectorAll('.reveal').forEach(function(el, i){
+      el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
+      io.observe(el);
+    });
+  }
+
+  // 검색 — 제목·요약·분야를 훑는다
+  var box = document.getElementById('q');
+  if (box) {
+    var rows = [].slice.call(document.querySelectorAll('.list .row'));
+    var cnt = document.querySelector('.srch .cnt');
+    var nores = document.querySelector('.noresult');
+    var moreWrap = document.querySelector('.more-wrap');
+    function filter(){
+      var q = box.value.trim().toLowerCase();
+      var n = 0;
+      rows.forEach(function(r){
+        var hit = !q || r.textContent.toLowerCase().indexOf(q) > -1;
+        r.classList.toggle('hide', !hit);
+        if (hit) n++;
+      });
+      if (q) {
+        rows.forEach(function(r){ r.classList.remove('over'); });
+        if (moreWrap) moreWrap.style.display = 'none';
+      } else {
+        applyMore();
+        if (moreWrap) moreWrap.style.display = '';
+      }
+      if (cnt) cnt.textContent = q ? n + '건' : '';
+      if (nores) nores.style.display = (q && n === 0) ? 'block' : 'none';
+    }
+    box.addEventListener('input', filter);
+  }
+
+  // 더 보기 — 처음엔 20개만
+  var STEP = 20, shown = STEP;
+  function applyMore(){
+    var rows = [].slice.call(document.querySelectorAll('.list .row'));
+    rows.forEach(function(r, i){ r.classList.toggle('over', i >= shown); });
+    var btn = document.querySelector('.more-btn');
+    if (btn) {
+      var left = rows.length - shown;
+      btn.textContent = left > 0 ? ('기록 ' + left + '건 더 보기') : '';
+      btn.parentNode.style.display = left > 0 ? '' : 'none';
+    }
+  }
+  var mb = document.querySelector('.more-btn');
+  if (mb) {
+    var st = document.createElement('style');
+    st.textContent = '.row.over{display:none}';
+    document.head.appendChild(st);
+    applyMore();
+    mb.addEventListener('click', function(){ shown += STEP; applyMore(); });
+  }
+
+  // 기사 — 목차 자동 생성
+  var art = document.querySelector('article');
+  if (art) {
+    var hs = [].slice.call(art.querySelectorAll('h2'));
+    if (hs.length >= 3) {
+      var ol = '';
+      hs.forEach(function(h, i){
+        var id = 'h' + i;
+        h.id = id;
+        ol += '<li><a href="#' + id + '">' + h.textContent + '</a></li>';
+      });
+      var toc = document.createElement('nav');
+      toc.className = 'toc';
+      toc.innerHTML = '<b>이 글의 순서</b><ol>' + ol + '</ol>';
+      var anchor = art.querySelector('.video') || art.querySelector('h1');
+      anchor.parentNode.insertBefore(toc, anchor.nextSibling);
+    }
+
+    // 읽기 진행 막대
+    var bar = document.createElement('div');
+    bar.className = 'prog';
+    document.body.appendChild(bar);
+    function prog(){
+      var t = art.getBoundingClientRect().top + window.scrollY;
+      var h = art.offsetHeight - window.innerHeight;
+      var p = h > 0 ? Math.min(Math.max((window.scrollY - t) / h, 0), 1) : 0;
+      bar.style.width = (p * 100).toFixed(1) + '%';
+    }
+    window.addEventListener('scroll', prog, {passive: true});
+    prog();
+
+    // 공유
+    var sh = document.createElement('div');
+    sh.className = 'share';
+    sh.innerHTML = '<span>공유</span>' +
+      '<button data-s="link" title="주소 복사">🔗</button>' +
+      '<button data-s="x" title="X">X</button>' +
+      '<button data-s="fb" title="페이스북">f</button>';
+    art.appendChild(sh);
+    sh.addEventListener('click', function(e){
+      var b = e.target.closest('button');
+      if (!b) return;
+      var u = encodeURIComponent(location.href), t = encodeURIComponent(document.title);
+      var k = b.getAttribute('data-s');
+      if (k === 'link') {
+        navigator.clipboard && navigator.clipboard.writeText(location.href);
+        b.textContent = '✓';
+        setTimeout(function(){ b.textContent = '🔗'; }, 1400);
+      } else if (k === 'x') {
+        window.open('https://twitter.com/intent/tweet?url=' + u + '&text=' + t, '_blank');
+      } else {
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
+      }
+    });
+  }
+
+  // 맨 위로
+  var tb = document.createElement('button');
+  tb.className = 'top-btn';
+  tb.setAttribute('aria-label', '맨 위로');
+  tb.textContent = '↑';
+  document.body.appendChild(tb);
+  tb.addEventListener('click', function(){
+    window.scrollTo({top: 0, behavior: reduce ? 'auto' : 'smooth'});
   });
+  window.addEventListener('scroll', function(){
+    tb.classList.toggle('on', window.scrollY > 600);
+  }, {passive: true});
+
+  // 통계 카운트
   document.querySelectorAll('.hero .stat b').forEach(function(b){
     var t = b.textContent.trim(), pct = t.indexOf('%') > -1;
     var n = parseInt(t, 10);
