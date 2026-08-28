@@ -310,6 +310,8 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
  padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+/* sticky 는 부모 높이 안에서만 붙는다. 그리드 칸이 본문만큼 늘어나야 끝까지 따라온다. */
+.side-slot{align-self:stretch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,38 +464,44 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>6분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「철수는 논의된 바 없다 — 1969년 국회의 답변, 그리고 그 뒤」</h1><div class="video"><iframe src="https://www.youtube.com/embed/BQ89Dmc28Zo" title="「미군 철수는 논의된 바 없다」 — 1969년 국회의 답변, 그리고 2년 뒤" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">22</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">20</span></a><a class="sl on" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">53</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="정책" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><span class="k">정책</span>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</a><a class="rl" data-desk="기록" href="/01_%EC%A7%80%EC%A7%84.html"><span class="k">기록</span>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</a><a class="rl" data-desk="정책" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><span class="k">정책</span>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</a><a class="rl" data-desk="정책" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><span class="k">정책</span>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</a><a class="rl" data-desk="정책" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><span class="k">정책</span>SK하이닉스 자사주 40조 취득, 옛날에는 위법</a><a class="rl" data-desk="정책" href="/05_%EB%B6%81%EB%AF%B8APEC.html"><span class="k">정책</span>북미회담 11월 APEC서 추진, 국회 회의록엔 APEC 193번</a><a class="rl" data-desk="정책" href="/06_%EC%A0%95%EB%B6%80%EC%A1%B0%EC%A7%81.html"><span class="k">정책</span>검찰청 10월 폐지, 정부조직법 의원 발의 469건 중 통과는 7건</a><a class="rl" data-desk="정책" href="/07_%EC%84%B8%EA%B8%88.html"><span class="k">정책</span>세제개편안 8월 20일 입법예고 마감, 세금 법안 절반이 감면법인데</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>7분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「철수는 논의된 바 없다 — 1969년 국회의 답변, 그리고 그 뒤」</h1><div class="video"><iframe src="https://www.youtube.com/embed/BQ89Dmc28Zo" title="「미군 철수는 논의된 바 없다」 — 1969년 국회의 답변, 그리고 2년 뒤" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>훈련이 먼저였다</td><td>제7대 제68회 제3차 국회본회의 · 1969년 3월 5일</td></tr><tr><td>이 년 뒤</td><td>제8대 제77회 제7차 국회본회의 · 1971년 8월 7일</td></tr><tr><td>대견스럽게 지켜보면서</td><td>제8대 제77회 제9차 국회본회의 · 1971년 8월 10일</td></tr><tr><td>기정사실</td><td>제9대 제97회 제1차 국회본회의 · 1977년 6월 21일</td></tr><tr><td>못 할 것이다</td><td>제9대 제97회 제2차 국회본회의 · 1977년 6월 22일</td></tr><tr><td>그대로 진행되고 있다</td><td>제10대 제101회 국회본회의 · 1979년 3월 19일</td></tr><tr><td>변경 또는 조정</td><td>제10대 제101회 제6차 국회본회의 · 1979년 3월 23일</td></tr><tr><td>그대로 두고</td><td>제10대 제102회 제1차 국회본회의 · 1979년 7월 21일</td></tr></tbody></table></div>
 <h2>훈련이 먼저였다</h2>
+<figure><img src="/img/01_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>훈련 한 번 했을 뿐인데 국회가 술렁였습니다. 1969년입니다.</p>
 <p>그해 봄, 한국군과 미군이 큰 훈련을 함께 했습니다. 병력을 비행기로 실어 나르는 훈련이었습니다. 3월 5일, 한 의원이 이 훈련을 국회에서 꺼냅니다. 훈련 자체가 문제가 아니었습니다. 저 훈련이 무엇을 준비하는 거냐고 물은 겁니다.</p>
 <p>속기록에 그대로 남았습니다. 오끼나와 기지를 철수한다든지 주한미군을 철수한다든지, 미 본토 중심으로 군사작전을 전환할 수 있는 예비모의작전이 아닌가 하는 의구심을 갖게 되는 것입니다.</p>
 <p>훈련하는 걸 보고 철수를 떠올린 겁니다.</p>
 <hr>
 <h2>변경이 없다</h2>
+<figure><img src="/img/02_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>국방부장관이 답합니다. 미국의 극동전략은 한마디로 말씀드려서 변경이 없다고 봅니다.</p>
 <p>극동은 미국에서 볼 때 가장 먼 동쪽, 한국과 일본이 있는 이쪽 지역입니다. 그러니까 미국이 이 지역을 어떻게 지킬지 짜 놓은 큰 그림, 그게 안 바뀐다는 얘기였습니다.</p>
 <p>근거도 댔습니다. 얼마 전 동해안으로 무장 간첩이 들어왔을 때 미국이 장비 지원을 약속했고, 이번 훈련도 한국을 어떻게 지킬지 실제로 점검해 보려고 몇 달 전부터 준비한 것이라고요.</p>
 <p>종이에 적힌 계획보다 정말 되는지 해 보는 게 중요하지 않겠느냐. 그 말이 뒤에 붙었습니다.</p>
 <hr>
 <h2>논의된 바도 없다</h2>
+<figure><img src="/img/03_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>이어서 철수 그 자체를 묻자, 답이 이렇게 나옵니다.</p>
 <p>주한미군 철수도 논의된 바도 없고, 또 철수되어서는 안 되리라고 생각합니다. 그러므로 말미암아서 철수가 될 수 없다는 것을 말씀을 드립니다.</p>
 <p>논의한 적도 없다, 그래서는 안 된다, 그럴 수도 없다. 한 문단 안에서 세 번을 겹쳐 말했습니다.</p>
 <p>그리고 2년 뒤에 무슨 일이 있었을까요.</p>
 <hr>
 <h2>이 년 뒤</h2>
+<figure><img src="/img/04_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>1971년, 미군 한 개 사단이 한국을 떠납니다. 2만 명, 사단 하나가 통째로 빠진 겁니다.</p>
 <p>정부가 내건 방침은 이랬습니다. 먼저 보장을 받고, 그다음에 줄인다. 선 보장 후 감군입니다.</p>
 <p>그해 8월 7일 본회의에서 한 의원이 외무부장관에게 묻습니다. 주한미군 감군을 선 보장 후 감군이라고 절대반대를 해서 외교를 했는데, 그때 우리가 요구한 조건하고 결과가 어떻게 되었느냐.</p>
 <p>받기로 한 건 받았느냐는 물음이었습니다. 답은 우리 군을 줄이는 문제와 미군을 줄이는 문제를 갈라 놓는 데서 시작했습니다.</p>
 <hr>
 <h2>대견스럽게 지켜보면서</h2>
+<figure><img src="/img/05_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>사흘 뒤, 같은 회기 기록에는 결이 다른 문장이 남습니다.</p>
 <p>휴전선 일대의 방위를 한국군이 전담하게 된 것을 서로 대견스럽게 지켜보면서, 이 재배치가 한국의 안보를 저해함이 없이 이룩됐다는 것을 알고 있읍니다.</p>
 <p>한쪽은 약속받은 게 어떻게 됐느냐고 따졌고, 다른 쪽은 대견하다고 적었습니다. 같은 일을 두고 나온 두 문장이 사흘 사이에 같은 회의록에 들어 있습니다.</p>
 <hr>
 <div class="ad">광고</div><h2>기정사실</h2>
+<figure><img src="/img/06_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>1977년에는 방향이 거꾸로였습니다. 이번엔 미국이 먼저 말을 꺼냅니다. 새로 들어선 미국 행정부가 한국에 있는 지상군을 단계적으로 빼겠다고 공개적으로 밝혔습니다.</p>
 <p>6월 21일, 국무총리가 본회의에서 말합니다. 4~5년 내에 지상군을 철수하겠다는 것을 공표한 이상, 우리는 일단 이를 기정사실이라는 전제하에 만반의 대비책을 강구해 나가야 하겠읍니다.</p>
 <p>기정사실. 이미 정해진 일로 치자는 뜻입니다. 4~5년이면 1981년이나 1982년쯤입니다. 그때까지 우리끼리 지킬 준비를 하자는 말이었습니다.</p>

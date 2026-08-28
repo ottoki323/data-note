@@ -310,6 +310,8 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 
 aside.side{position:sticky;top:78px;max-height:calc(100vh - 96px);overflow-y:auto;
  padding:6px 2px 26px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+/* sticky 는 부모 높이 안에서만 붙는다. 그리드 칸이 본문만큼 늘어나야 끝까지 따라온다. */
+.side-slot{align-self:stretch}
 aside.side::-webkit-scrollbar{width:5px}
 aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 @media(max-width:900px){aside.side{position:static;width:auto;height:auto;
@@ -462,31 +464,37 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「굶어 죽은 사람이 하나라도 나오면 수령을 다스려라 — 1671년」</h1><div class="video"><iframe src="https://www.youtube.com/embed/55EZph1_9WM" title="굶어 죽은 사람이 하나라도 나오면 수령을 다스려라 — 1671년" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">22</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">20</span></a><a class="sl on" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">53</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="정책" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><span class="k">정책</span>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</a><a class="rl" data-desk="기록" href="/01_%EC%A7%80%EC%A7%84.html"><span class="k">기록</span>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</a><a class="rl" data-desk="정책" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><span class="k">정책</span>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</a><a class="rl" data-desk="정책" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><span class="k">정책</span>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</a><a class="rl" data-desk="정책" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><span class="k">정책</span>SK하이닉스 자사주 40조 취득, 옛날에는 위법</a><a class="rl" data-desk="정책" href="/05_%EB%B6%81%EB%AF%B8APEC.html"><span class="k">정책</span>북미회담 11월 APEC서 추진, 국회 회의록엔 APEC 193번</a><a class="rl" data-desk="정책" href="/06_%EC%A0%95%EB%B6%80%EC%A1%B0%EC%A7%81.html"><span class="k">정책</span>검찰청 10월 폐지, 정부조직법 의원 발의 469건 중 통과는 7건</a><a class="rl" data-desk="정책" href="/07_%EC%84%B8%EA%B8%88.html"><span class="k">정책</span>세제개편안 8월 20일 입법예고 마감, 세금 법안 절반이 감면법인데</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「굶어 죽은 사람이 하나라도 나오면 수령을 다스려라 — 1671년」</h1><div class="video"><iframe src="https://www.youtube.com/embed/55EZph1_9WM" title="굶어 죽은 사람이 하나라도 나오면 수령을 다스려라 — 1671년" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>규정</td><td>세종실록 · 1418년 9월 26일 · 호조 계</td></tr><tr><td>흉년이 온다</td><td>현종실록 · 1670년 7월 23일 · 영의정 정태화</td></tr><tr><td>열한 사람</td><td>현종실록 · 1670년 7월 19일</td></tr><tr><td>스물두 자</td><td>현종실록 · 1670년 8월 23일</td></tr><tr><td>선비도 굶어 죽다</td><td>현종실록 · 1670년 8월 28일</td></tr><tr><td>호랑이 가죽 값</td><td>현종실록 · 1670년 10월 2일 · 경상감사 민시중</td></tr><tr><td>바다 건너</td><td>현종실록 · 1671년 1월 30일 · 제주목사 노정</td></tr><tr><td>숫자가 된 사람들</td><td>현종실록 · 1671년 2월 13일</td></tr><tr><td>전라도의 봄</td><td>현종실록 · 1671년 3월 10일</td></tr><tr><td>명령이 닿지 않는 나라</td><td>현종실록 · 1671년 5월 9일 · 좌의정 정치화</td></tr></tbody></table></div>
 <h2>규정</h2>
+<figure><img src="/img/01_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>요즘 물이 모자란다는 이야기가 자주 들립니다. 조선에는 흉년에 관한 규정이 따로 있었습니다.</p>
 <p>1418년, 나라 살림을 맡은 호조의 건의가 그대로 받아들여집니다. 농사를 망친 고을은 감사가 직접 돌며 굶는 사람을 먹이고, 한 사람이라도 굶어 죽으면 사헌부에 넘겨 다스리라는 것이었습니다. 사헌부는 관리들을 감찰하던 곳입니다.</p>
 <p>굶어 죽은 사람이 한 명만 나와도 그 고을 수령을 조사한다는 뜻입니다.</p>
 <hr>
 <h2>흉년이 온다</h2>
+<figure><img src="/img/02_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>그로부터 이백오십여 년 뒤인 1670년 여름, 영의정 정태화가 아룁니다. 올해 크게 흉년이 들 테니 굶는 사람 먹일 책임자부터 빨리 뽑으시라는 것이었습니다.</p>
 <p>같은 자리에서 그는 관리들 봉급을 올려 준 조치도 그대로 둘 수 없다 했고, 임금은 겨울부터 도로 줄이라 명했습니다. 나라가 먼저 허리띠를 조인 것입니다.</p>
 <hr>
 <h2>열한 사람</h2>
+<figure><img src="/img/03_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>정태화가 그 말을 하기 나흘 전, 첫 보고는 이미 올라와 있었습니다. 경상도 함양에서 굶주리던 사람 열한 명이 굶어 죽었고, 임금은 구호를 베풀게 했습니다.</p>
 <p>규정대로라면 여기서 그 고을 수령을 조사해야 했습니다. 조사했다는 기록은 실록에 없습니다. 대신 다음 보고가 이어집니다.</p>
 <hr>
 <h2>스물두 자</h2>
+<figure><img src="/img/04_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>한 달 뒤에는 도성 안입니다. 실록이 그 죽음에 쓴 글자는 스물두 자, 문자메시지 한 줄 길이입니다.</p>
 <p>서울 서부에서 여인이 굶어 죽었다. 한성부가 아뢰니 구호를 베풀라 명하였다.</p>
 <p>한성부는 서울을 맡아 다스리던 관청입니다. 이름도 나이도 없습니다. 굶어 죽었다는 사실과, 나라가 장례를 돌보라 했다는 것. 남은 것은 그뿐입니다.</p>
 <hr>
 <h2>선비도 굶어 죽다</h2>
+<figure><img src="/img/05_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>닷새 뒤, 이번에는 선비였습니다. 한성부가 아뢰자 임금이 답합니다. 일이 지극히 놀랍고 참혹하다. 따로 구호를 베풀고, 그 처자에게도 양식을 주어 살려내라.</p>
 <p>굶어 죽는 일이 양반 집안까지 올라온 것입니다. 이듬해 봄, 영의정 허적은 벼슬을 지낸 사람이 겨울에 굶어 죽었고 그 손녀까지 굶어 죽었다고 말합니다.</p>
 <hr>
 <div class="ad">광고</div><h2>호랑이 가죽 값</h2>
+<figure><img src="/img/06_01.jpg" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>곳간이 비자 지방관들이 머리를 씁니다. 그해 가을, 경상감사 민시중이 청합니다. 임금께 바칠 호랑이와 표범 가죽 값을 그대로 받아 굶는 사람 먹이는 데 쓰게 해 달라. 임금은 허락했습니다.</p>
 <p>임금에게 바칠 물건을 팔아 굶는 사람을 먹이겠다는 말입니다. 이 청이 그대로 통했다는 사실이 그해 창고 사정을 말해 줍니다.</p>
 <hr>
