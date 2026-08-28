@@ -243,7 +243,35 @@ footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:14px;padd
  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#7B95B3}
 footer.site strong{color:#D5E4F5}
 </style>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYXYW54388"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
+(function(){
+  var marks = [25, 50, 75, 100], hit = {};
+  function depth(){
+    var h = document.documentElement;
+    var p = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (p >= m && !hit[m]) { hit[m] = 1; gtag('event', 'scroll_depth', { percent: m }); }
+    });
+  }
+  window.addEventListener('scroll', depth, { passive: true });
+  var t0 = Date.now();
+  window.addEventListener('beforeunload', function(){
+    var sec = Math.round((Date.now() - t0) / 1000);
+    if (sec > 2 && navigator.sendBeacon) gtag('event', 'read_time', { seconds: sec });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !a.href) return;
+    if (a.hostname && a.hostname !== location.hostname)
+      gtag('event', 'outbound', { link_url: a.href });
+  });
+})();
+</script>
 </head><body>
 <header class="top"><div class="in">
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
@@ -254,7 +282,7 @@ footer.site strong{color:#D5E4F5}
 </div></header>
 
 <div class="wrap"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>전력 총수요 역대 1위인데…최대전력은 역대 5위였다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
-<div class="tw"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>(2026 08 25 사용자 지시 「지금 현재 상태의</td><td>주인공 지표를 2026년으로 바꿨다</td></tr><tr><td>총수요 (14:35) 역대 1위 종전 104,215MW (2024 08</td><td>104,394MW</td></tr><tr><td>전력시장 내 차이 = 시장 밖 태양광</td><td>87,348MW · 17,046MW</td></tr><tr><td>역대 1위 (2024 08 20)</td><td>최대전력 95.3GW — 역대 5위 · 97.1GW</td></tr><tr><td>8월 주별 최대 시장수요 전망 1주 93.5 2주 97.9 4주 96.6</td><td>3주 98.8</td></tr><tr><td>1단계 200→300kWh 2단계 400→450kWh</td><td>2026년 7~8월 누진 구간 완화</td></tr><tr><td>⚠ 기사 본문은 총수요 시장 차이를 16,867MW 로 적었는데 이다</td><td>두 값을 빼면 17,046</td></tr><tr><td>310/국가통계 가정용</td><td>2000~2024(전부 2024년까지)</td></tr></tbody></table></div>
+<div class="tw"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>(2026 08 25 사용자 지시 「지금 현재 상태의</td><td>주인공 지표를 2026년으로 바꿨다</td></tr><tr><td>총수요 (14:35) 역대 1위 종전 104,215MW (2024 08</td><td>104,394MW</td></tr><tr><td>전력시장 내 차이 = 시장 밖 태양광</td><td>87,348MW · 17,046MW</td></tr><tr><td>역대 1위 (2024 08 20)</td><td>최대전력 95.3GW — 역대 5위 · 97.1GW</td></tr><tr><td>8월 주별 최대 시장수요 전망 1주 93.5 2주 97.9 4주 96.6</td><td>3주 98.8</td></tr><tr><td>1단계 200→300kWh 2단계 400→450kWh</td><td>2026년 7~8월 누진 구간 완화</td></tr><tr><td>⚠ 기사 본문은 총수요 시장 차이를 16,867MW 로 적었는데 이다</td><td>두 값을 빼면 17,046</td></tr><tr><td>로컬 310/DT_31002N_A004 가정용</td><td>2000~2024(전부 2024년까지)</td></tr></tbody></table></div>
 <h2>8월 7일 오후 2시 35분</h2>
 <figure><img src="/img/02_실외기_01.png" alt="AI로 생성한 이미지입니다" loading="lazy"><figcaption>AI로 생성한 이미지입니다</figcaption></figure>
 <p>2026년 8월 7일 오후, 우리나라 전력 총수요가 104.4기가와트를 찍었습니다.</p>

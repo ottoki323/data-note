@@ -253,7 +253,35 @@ footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:14px;padd
  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#7B95B3}
 footer.site strong{color:#D5E4F5}
 </style>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYXYW54388"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
+(function(){
+  var marks = [25, 50, 75, 100], hit = {};
+  function depth(){
+    var h = document.documentElement;
+    var p = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (p >= m && !hit[m]) { hit[m] = 1; gtag('event', 'scroll_depth', { percent: m }); }
+    });
+  }
+  window.addEventListener('scroll', depth, { passive: true });
+  var t0 = Date.now();
+  window.addEventListener('beforeunload', function(){
+    var sec = Math.round((Date.now() - t0) / 1000);
+    if (sec > 2 && navigator.sendBeacon) gtag('event', 'read_time', { seconds: sec });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !a.href) return;
+    if (a.hostname && a.hostname !== location.hostname)
+      gtag('event', 'outbound', { link_url: a.href });
+  });
+})();
+</script>
 </head><body>
 <header class="top"><div class="in">
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">

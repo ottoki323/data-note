@@ -243,7 +243,35 @@ footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:14px;padd
  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#7B95B3}
 footer.site strong{color:#D5E4F5}
 </style>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYXYW54388"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
+(function(){
+  var marks = [25, 50, 75, 100], hit = {};
+  function depth(){
+    var h = document.documentElement;
+    var p = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (p >= m && !hit[m]) { hit[m] = 1; gtag('event', 'scroll_depth', { percent: m }); }
+    });
+  }
+  window.addEventListener('scroll', depth, { passive: true });
+  var t0 = Date.now();
+  window.addEventListener('beforeunload', function(){
+    var sec = Math.round((Date.now() - t0) / 1000);
+    if (sec > 2 && navigator.sendBeacon) gtag('event', 'read_time', { seconds: sec });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !a.href) return;
+    if (a.hostname && a.hostname !== location.hostname)
+      gtag('event', 'outbound', { link_url: a.href });
+  });
+})();
+</script>
 </head><body>
 <header class="top"><div class="in">
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
@@ -253,7 +281,7 @@ footer.site strong{color:#D5E4F5}
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="wrap"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고</h1><div class="video"><iframe src="https://www.youtube.com/embed/NnHIlPpT3tM" title="한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="wrap"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고</h1><div class="video"><iframe src="https://www.youtube.com/embed/NnHIlPpT3tM" title="한은 &quot;번지기 전에 호미로&quot;…근원물가 2.6%, 2년 7개월 만에 최고" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>기준금리</td><td>2.75% → <strong>3.00%</strong> (2026-08-27, 2연속, 표결 6:1)</td></tr><tr><td>직전 인상</td><td>2026-07-16 (2.50 → 2.75) · 그 앞 14개월 동결</td></tr><tr><td>소비자물가</td><td>5월 3.1% · 6월 3.2% · <strong>7월 2.8%</strong> (2026-08-04 발표)</td></tr><tr><td>근원물가(식료품·에너지 제외)</td><td>5월 2.5% · 6월 2.5% · <strong>7월 2.6%</strong></td></tr><tr><td>근원 2.6% 초과 마지막 달</td><td><strong>2023년 12월 2.8%</strong> → 31개월 = 2년 7개월</td></tr><tr><td>근원 저점</td><td><strong>2025년 8월 1.3%</strong></td></tr><tr><td>성장률 전망</td><td>2.6% → <strong>3.3%</strong></td></tr></tbody></table></div>
 <h2>한국은행이 한 일</h2>
 <p>한국은행 금융통화위원회가 기준금리를 올렸습니다. 2026년 8월 27일 오전이었습니다.</p>
@@ -306,6 +334,8 @@ footer.site strong{color:#D5E4F5}
 <p>2026년 8월 27일 오전이었습니다.</p>
 <h3>그 앞 14개월, 숫자로는 어떻게 되나요?</h3>
 <p>한국은행은 14개월 동안 금리를 2.50%에 그대로 뒀습니다.</p>
+<h2>어느 지표를 썼나</h2>
+<p>뉴스의 2.6% 는 <strong>식료품및에너지제외지수</strong>다(같은 달 농산물및석유류제외는 2.5%).</p>
 <h2>출처</h2>
 <p>국가데이터처 소비자물가동향과 한국은행 통화정책방향 결정을 참고했습니다.</p>
 <h2>서술 원칙</h2>

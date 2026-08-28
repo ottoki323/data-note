@@ -243,7 +243,35 @@ footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:14px;padd
  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#7B95B3}
 footer.site strong{color:#D5E4F5}
 </style>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYXYW54388"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
+(function(){
+  var marks = [25, 50, 75, 100], hit = {};
+  function depth(){
+    var h = document.documentElement;
+    var p = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (p >= m && !hit[m]) { hit[m] = 1; gtag('event', 'scroll_depth', { percent: m }); }
+    });
+  }
+  window.addEventListener('scroll', depth, { passive: true });
+  var t0 = Date.now();
+  window.addEventListener('beforeunload', function(){
+    var sec = Math.round((Date.now() - t0) / 1000);
+    if (sec > 2 && navigator.sendBeacon) gtag('event', 'read_time', { seconds: sec });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !a.href) return;
+    if (a.hostname && a.hostname !== location.hostname)
+      gtag('event', 'outbound', { link_url: a.href });
+  });
+})();
+</script>
 </head><body>
 <header class="top"><div class="in">
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
@@ -295,7 +323,7 @@ footer.site strong{color:#D5E4F5}
 <p>임금은 안 된다고 했습니다. 나라가 금지령을 세워 놓고 대신이 아프다고 억지로 허락한다면 성실한 예우가 아니다, 삼정승의 신하라도 일체 허락하지 않는 것이 법을 지키는 도리에 오히려 무겁지 않겠는가.</p>
 <hr>
 <h2>여든 해 뒤</h2>
-<p>1742년, 임금이 서울을 맡은 관청의 기록자들을 불러 묻습니다. 사대부가 남의 집을 빼앗아 들어가는 일이 요즘 어떠한가. 범한 자가 있으면 권세 있는 집이라도 숨기지 말라.</p>
+<p>1742년, 임금이 서울을 맡은 관청의 실무자들을 불러 묻습니다. 사대부가 남의 집을 빼앗아 들어가는 일이 요즘 어떠한가. 범한 자가 있으면 권세 있는 집이라도 숨기지 말라.</p>
 <p>서울 가운데를 맡은 관원이 답합니다. 빼앗아 들어가는 폐단이 간혹 있습니다. 간혹 있다는 그 대답이 실록에 그대로 적혔습니다.</p>
 <p>이경석이 처음 이 말을 꺼낸 지 일흔아홉 해가 지난 뒤였습니다. 그 사이 임금이 넷 바뀌었고 금지령은 여러 번 다시 내려졌습니다. 바뀌지 않은 것은 남의 집 대문 안쪽에서 벌어지는 일이었습니다.</p>
 <p>기록한국사 였습니다.</p>

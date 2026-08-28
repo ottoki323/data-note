@@ -245,7 +245,35 @@ footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:14px;padd
  border-top:1px solid rgba(255,255,255,.14);font-size:12px;color:#7B95B3}
 footer.site strong{color:#D5E4F5}
 </style>
-
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RYXYW54388"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
+(function(){
+  var marks = [25, 50, 75, 100], hit = {};
+  function depth(){
+    var h = document.documentElement;
+    var p = Math.round((h.scrollTop + window.innerHeight) / h.scrollHeight * 100);
+    marks.forEach(function(m){
+      if (p >= m && !hit[m]) { hit[m] = 1; gtag('event', 'scroll_depth', { percent: m }); }
+    });
+  }
+  window.addEventListener('scroll', depth, { passive: true });
+  var t0 = Date.now();
+  window.addEventListener('beforeunload', function(){
+    var sec = Math.round((Date.now() - t0) / 1000);
+    if (sec > 2 && navigator.sendBeacon) gtag('event', 'read_time', { seconds: sec });
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a');
+    if (!a || !a.href) return;
+    if (a.hostname && a.hostname !== location.hostname)
+      gtag('event', 'outbound', { link_url: a.href });
+  });
+})();
+</script>
 </head><body>
 <header class="top"><div class="in">
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
@@ -281,7 +309,7 @@ footer.site strong{color:#D5E4F5}
 <h3>그 이틀의 뒤, 숫자로는 어떻게 되나요?</h3>
 <p>그 대안에 흡수돼 사라진 의원 법안이 32건입니다. 가장 이른 것은 2024년 6월 5일, 가장 늦은 것은 올해 1월 15일에 발의됐습니다.</p>
 <h2>출처</h2>
-<ul><li>SK하이닉스 자사주 취득·소각 공시 및 보도 (2026-08-19) - 자기주식 소각 의무화 상법 개정 — 2026-02-25 국회 본회의 통과 · 2026-03-06 시행 - 국회 의안정보시스템 열린국회정보 OPEN 자료 — 「상법」 개정 법률안 342건 전수집계 - 국회회의록시스템 — 제1대~제22대 회의록 원문에서 「자기주식·자사주」 전수검색 - 집계 코드: <code>스크립트/scan_ep4.py</code> · <code>스크립트/scan_ep4_minutes.py</code></li></ul></article></div>
+<ul><li>SK하이닉스 자사주 취득·소각 공시 및 보도 (2026-08-19) - 자기주식 소각 의무화 상법 개정 — 2026-02-25 국회 본회의 통과 · 2026-03-06 시행 - 국회 의안정보시스템 열린국회정보 OPEN API — 「상법」 개정 법률안 342건 전수집계 - 국회회의록시스템 — 제1대~제22대 회의록 원문에서 「자기주식·자사주」 전수검색 - 집계 코드: <code>스크립트/scan_ep4.py</code> · <code>스크립트/scan_ep4_minutes.py</code></li></ul></article></div>
 <footer class="site"><div class="in">
   <div class="fb"><img src="/brand/logo_80.png" alt=""><b>데이터 블로그</b></div>
   <div>숫자로 세상을 읽습니다</div>
