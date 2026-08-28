@@ -152,6 +152,63 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .ad{margin:34px 0;padding:12px;border:1px dashed var(--line);border-radius:10px;
  text-align:center;color:var(--ink3);font-size:11.5px;letter-spacing:.16em}
 
+
+/* ── 영상 히어로 ── */
+.hero.big{padding:0;min-height:clamp(440px,62vh,620px);display:flex;align-items:flex-end;
+ margin-bottom:44px}
+.hero.big .bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero.big .bgvid{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;
+ min-height:100%;min-width:177.77vh;transform:translate(-50%,-50%);border:0;
+ pointer-events:none;object-fit:cover}
+.hero.big .veil{position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(6,15,28,.42) 0%,rgba(6,15,28,.62) 45%,
+   rgba(6,15,28,.93) 100%)}
+.hero.big .in{position:relative;z-index:2;padding-top:70px;padding-bottom:38px;width:100%}
+.hero.big .feat{display:block;max-width:units;max-width:760px}
+.hero.big .feat .kind{display:inline-block;margin-bottom:14px;
+ animation:rise .6s .05s both}
+.hero.big h1{font-size:clamp(30px,5.4vw,52px);margin:0 0 14px;letter-spacing:-.045em;
+ line-height:1.13;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.42);
+ animation:rise .7s .12s both}
+.hero.big .feat p{color:#D3E3F5;font-size:17px;margin:0 0 18px;max-width:58ch;
+ text-shadow:0 1px 12px rgba(0,0,0,.5);animation:rise .7s .2s both}
+.hero.big .go{display:inline-flex;align-items:center;gap:7px;background:var(--c,var(--blue));
+ color:#fff;font-weight:600;font-size:14.5px;padding:11px 22px;border-radius:26px;
+ transition:.22s;animation:rise .7s .28s both}
+.hero.big .feat:hover .go{gap:12px;box-shadow:0 6px 22px rgba(11,95,208,.45)}
+.hero.big .stat{animation:rise .8s .36s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ── 새로 올린 기록 ── */
+.picks{margin-bottom:40px}
+.ph{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.ph h2{margin:0;font-size:19px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.ph span{flex:1;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.pick{display:block;transition:.25s}
+.pick .pth{aspect-ratio:16/9;border-radius:11px;overflow:hidden;background:var(--alt);
+ position:relative;border:1px solid var(--hair);margin-bottom:11px}
+.pick .pth img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.pick:hover .pth img{transform:scale(1.07)}
+.pick .pv{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;
+ display:flex;align-items:center;justify-content:center;font-size:15px;
+ backdrop-filter:blur(3px);transition:.25s}
+.pick:hover .pv{background:var(--c,var(--blue));transform:translate(-50%,-50%) scale(1.12)}
+.pick h4{margin:8px 0 0;font-size:16.5px;line-height:1.42;letter-spacing:-.028em;
+ font-weight:700}
+.pick:hover h4{color:var(--c,var(--blue))}
+.pick:hover{transform:translateY(-3px)}
+
+/* ── 스크롤 등장 ── */
+.reveal{opacity:0;transform:translateY(20px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  .hero.big .feat *,.hero.big .stat{animation:none}
+  .hero.big .bgvid{display:none}
+}
+
 /* 푸터 */
 footer.site{background:var(--navy);color:#A9C1DC;margin-top:60px}
 footer.site .in{max-width:1160px;margin:0 auto;padding:38px 24px 58px;font-size:13px;
@@ -193,4 +250,38 @@ footer.site strong{color:#D5E4F5}
   <div class="legal"><span>등록된 언론사가 아닌 <strong>개인 데이터 기록 블로그</strong>입니다</span>
     <span>연락 ottoki323@gmail.com</span></div>
 </div></footer>
+<script>
+(function(){
+  var m = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (m || !('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.row,.pick,.picks,.filters').forEach(function(el){
+    el.classList.add('reveal');
+  });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, {rootMargin: '0px 0px -40px 0px', threshold: 0.05});
+  document.querySelectorAll('.reveal').forEach(function(el, i){
+    el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
+    io.observe(el);
+  });
+  document.querySelectorAll('.hero .stat b').forEach(function(b){
+    var t = b.textContent.trim(), pct = t.indexOf('%') > -1;
+    var n = parseInt(t, 10);
+    if (isNaN(n)) return;
+    var s0 = null;
+    function step(ts){
+      if (!s0) s0 = ts;
+      var p = Math.min((ts - s0) / 900, 1);
+      b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + (pct ? '%' : '');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    b.textContent = '0' + (pct ? '%' : '');
+    requestAnimationFrame(step);
+  });
+})();
+</script>
 </body></html>

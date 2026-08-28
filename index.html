@@ -152,6 +152,63 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .ad{margin:34px 0;padding:12px;border:1px dashed var(--line);border-radius:10px;
  text-align:center;color:var(--ink3);font-size:11.5px;letter-spacing:.16em}
 
+
+/* ── 영상 히어로 ── */
+.hero.big{padding:0;min-height:clamp(440px,62vh,620px);display:flex;align-items:flex-end;
+ margin-bottom:44px}
+.hero.big .bg{position:absolute;inset:0;overflow:hidden;z-index:0}
+.hero.big .bgvid{position:absolute;top:50%;left:50%;width:100vw;height:56.25vw;
+ min-height:100%;min-width:177.77vh;transform:translate(-50%,-50%);border:0;
+ pointer-events:none;object-fit:cover}
+.hero.big .veil{position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(6,15,28,.42) 0%,rgba(6,15,28,.62) 45%,
+   rgba(6,15,28,.93) 100%)}
+.hero.big .in{position:relative;z-index:2;padding-top:70px;padding-bottom:38px;width:100%}
+.hero.big .feat{display:block;max-width:units;max-width:760px}
+.hero.big .feat .kind{display:inline-block;margin-bottom:14px;
+ animation:rise .6s .05s both}
+.hero.big h1{font-size:clamp(30px,5.4vw,52px);margin:0 0 14px;letter-spacing:-.045em;
+ line-height:1.13;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.42);
+ animation:rise .7s .12s both}
+.hero.big .feat p{color:#D3E3F5;font-size:17px;margin:0 0 18px;max-width:58ch;
+ text-shadow:0 1px 12px rgba(0,0,0,.5);animation:rise .7s .2s both}
+.hero.big .go{display:inline-flex;align-items:center;gap:7px;background:var(--c,var(--blue));
+ color:#fff;font-weight:600;font-size:14.5px;padding:11px 22px;border-radius:26px;
+ transition:.22s;animation:rise .7s .28s both}
+.hero.big .feat:hover .go{gap:12px;box-shadow:0 6px 22px rgba(11,95,208,.45)}
+.hero.big .stat{animation:rise .8s .36s both}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ── 새로 올린 기록 ── */
+.picks{margin-bottom:40px}
+.ph{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.ph h2{margin:0;font-size:19px;font-weight:700;letter-spacing:-.03em;white-space:nowrap}
+.ph span{flex:1;height:2px;background:linear-gradient(90deg,var(--blue),transparent)}
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.pick{display:block;transition:.25s}
+.pick .pth{aspect-ratio:16/9;border-radius:11px;overflow:hidden;background:var(--alt);
+ position:relative;border:1px solid var(--hair);margin-bottom:11px}
+.pick .pth img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.pick:hover .pth img{transform:scale(1.07)}
+.pick .pv{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+ width:46px;height:46px;border-radius:50%;background:rgba(0,0,0,.55);color:#fff;
+ display:flex;align-items:center;justify-content:center;font-size:15px;
+ backdrop-filter:blur(3px);transition:.25s}
+.pick:hover .pv{background:var(--c,var(--blue));transform:translate(-50%,-50%) scale(1.12)}
+.pick h4{margin:8px 0 0;font-size:16.5px;line-height:1.42;letter-spacing:-.028em;
+ font-weight:700}
+.pick:hover h4{color:var(--c,var(--blue))}
+.pick:hover{transform:translateY(-3px)}
+
+/* ── 스크롤 등장 ── */
+.reveal{opacity:0;transform:translateY(20px)}
+.reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.reveal.in{opacity:1;transform:none;transition:none}
+  .hero.big .feat *,.hero.big .stat{animation:none}
+  .hero.big .bgvid{display:none}
+}
+
 /* 푸터 */
 footer.site{background:var(--navy);color:#A9C1DC;margin-top:60px}
 footer.site .in{max-width:1160px;margin:0 auto;padding:38px 24px 58px;font-size:13px;
@@ -174,18 +231,10 @@ footer.site strong{color:#D5E4F5}
   <nav><a href="/" class="">전체</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="">정책</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록</a><a href="/desk-%EA%B3%BC%ED%95%99.html" class="">과학</a><a href="/desk-%EC%83%9D%ED%99%9C.html" class="">생활</a>
        <a href="/about.html">소개</a></nav>
 </div></header>
-<section class="hero"><div class="in"><div class="eyebrow">DATA BLOG</div><h1>데이터 블로그</h1><p>공표된 통계와 원문 기록에서 숫자를 직접 뽑아 세상을 분석합니다. 지금의 숫자가 어디서 왔고 무엇을 뜻하는지, 원자료로 확인합니다.</p><div class="stat"><div><b>96</b><span>기록</span></div><div><b>3</b><span>분야</span></div><div><b>63</b><span>영상</span></div><div><b>100%</b><span>원자료 집계</span></div></div></div></section>
-<div class="wrap"><div class="filters"><a href="/" class="on">전체 96</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" data-desk="경제" class="">경제 22</a><a href="/desk-%EC%A0%95%EC%B1%85.html" data-desk="정책" class="">정책 20</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" data-desk="기록" class="">기록 54</a></div><div class="list"><a class="row" data-desk="정책" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><div class="th"><img src="https://i.ytimg.com/vi/eLxfehJ7LoU/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</h3><p>여는 말
+<section class="hero big" data-desk="정책"><div class="bg"><iframe class="bgvid" src="https://www.youtube.com/embed/eLxfehJ7LoU?autoplay=1&mute=1&loop=1&playlist=eLxfehJ7LoU&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay; encrypted-media" loading="eager" title=""></iframe><div class="veil"></div></div><div class="in"><div class="eyebrow">DATA BLOG · 숫자로 세상을 읽습니다</div><a class="feat" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><span class="kind">정책</span><h1>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</h1><p>여는 말
 원자료로 직접 작성한 도표입니다
-제헌국회부터 지금까지, 국회에 발의된 법률안은 12만 1,784건입니다. 이 가운데 5만 2,550건은 표결에 오르지 못한 채 사라졌습니다. 찬성도 반대도 …</p></div></a><a class="row" data-desk="기록" href="/01_%EC%A7%80%EC%A7%84.html"><div class="th"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">기록</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h3><p>숫자로 먼저
-항목값1,764헌종 1건 · 철종0건헌종 15년 기사 3,987건 — 세종의 8분의1
-여는 숫자
-천칠백육십사. 조선왕조실록 전체에서 지진을 적은 기사의 수입니다.
-세어 본 것은 실록 원…</p></div></a><a class="row" data-desk="정책" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><div class="th"><img src="https://i.ytimg.com/vi/KPXTSN2UuO8/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</h3><p>여는 말
-원자료로 직접 작성한 도표입니다
-국회에 발의된 법률안 가운데 부동산만 따로 떼어 세어 봤습니다. 법안 이름에 부동산, 주택, 임대차, 재건축, 분양 같은 말이 들어간 법률안은 제15대 이후…</p></div></a><a class="row" data-desk="정책" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><div class="th"><img src="https://i.ytimg.com/vi/lIzH7TpNWZE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</h3><p>여는 말
-원자료로 직접 작성한 도표입니다
-요즘 국회에서는 국회법을 고치는 문제를 두고 논의가 이어지고 있습니다. 법안을 심사하는 기간과 토론하는 방식을 바꾸자는 개정안들입니다. 그래서 세어봤습니다.…</p></div></a><a class="row" data-desk="정책" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><div class="th"><img src="https://i.ytimg.com/vi/m_rfH4yw-EE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>SK하이닉스 자사주 40조 취득, 옛날에는 위법</h3><p>40조원
+제헌국회부터 지금까지, 국회에 발의된 법률안은 12만 1,784건입니다. 이 가운데 5만 2,550건은 표결에 오르지 못한 채 사라졌습니다. 찬성도 반대도 아닙니다. 임기가 끝나서 자동으로 폐…</p><span class="go">기사 읽기 →</span></a><div class="stat"><div><b>96</b><span>기록</span></div><div><b>3</b><span>분야</span></div><div><b>63</b><span>영상</span></div><div><b>100%</b><span>원자료 집계</span></div></div></div></section>
+<div class="wrap"><section class="picks"><div class="ph"><h2>새로 올린 기록</h2><span></span></div><div class="pg"><a class="pick" data-desk="기록" href="/01_%EC%A7%80%EC%A7%84.html"><div class="pth"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"><span class="pv">▶</span></div><span class="kind">기록</span><h4>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h4></a><a class="pick" data-desk="정책" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><div class="pth"><img src="https://i.ytimg.com/vi/KPXTSN2UuO8/mqdefault.jpg" alt="" loading="lazy"><span class="pv">▶</span></div><span class="kind">정책</span><h4>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</h4></a><a class="pick" data-desk="정책" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><div class="pth"><img src="https://i.ytimg.com/vi/lIzH7TpNWZE/mqdefault.jpg" alt="" loading="lazy"><span class="pv">▶</span></div><span class="kind">정책</span><h4>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</h4></a></div></section><div class="filters"><a href="/" class="on">전체 96</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" data-desk="경제" class="">경제 22</a><a href="/desk-%EC%A0%95%EC%B1%85.html" data-desk="정책" class="">정책 20</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" data-desk="기록" class="">기록 54</a></div><div class="list"><a class="row" data-desk="정책" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><div class="th"><img src="https://i.ytimg.com/vi/m_rfH4yw-EE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>SK하이닉스 자사주 40조 취득, 옛날에는 위법</h3><p>40조원
 원자료로 직접 작성한 도표입니다
 어제 SK하이닉스가 40조원어치 자기 주식을 사들여 전부 없애겠다고 발표했습니다. 국내 상장사 가운데 가장 큰 규모입니다. 보통주 2,407만 주, 전체 발…</p></div></a><a class="row" data-desk="정책" href="/05_%EB%B6%81%EB%AF%B8APEC.html"><div class="th"><img src="https://i.ytimg.com/vi/RX5gST0rZn0/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span class="play">▶ 영상</span></div><h3>북미회담 11월 APEC서 추진, 국회 회의록엔 APEC 193번</h3><p>북미회담 18번
 11월, 그 회의에서
@@ -367,4 +416,38 @@ AI로 생성한 이미지입니다
   <div class="legal"><span>등록된 언론사가 아닌 <strong>개인 데이터 기록 블로그</strong>입니다</span>
     <span>연락 ottoki323@gmail.com</span></div>
 </div></footer>
+<script>
+(function(){
+  var m = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (m || !('IntersectionObserver' in window)) return;
+  document.querySelectorAll('.row,.pick,.picks,.filters').forEach(function(el){
+    el.classList.add('reveal');
+  });
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, {rootMargin: '0px 0px -40px 0px', threshold: 0.05});
+  document.querySelectorAll('.reveal').forEach(function(el, i){
+    el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
+    io.observe(el);
+  });
+  document.querySelectorAll('.hero .stat b').forEach(function(b){
+    var t = b.textContent.trim(), pct = t.indexOf('%') > -1;
+    var n = parseInt(t, 10);
+    if (isNaN(n)) return;
+    var s0 = null;
+    function step(ts){
+      if (!s0) s0 = ts;
+      var p = Math.min((ts - s0) / 900, 1);
+      b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + (pct ? '%' : '');
+      if (p < 1) requestAnimationFrame(step);
+    }
+    b.textContent = '0' + (pct ? '%' : '');
+    requestAnimationFrame(step);
+  });
+})();
+</script>
 </body></html>
