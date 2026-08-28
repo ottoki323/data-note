@@ -1,226 +1,203 @@
 <!doctype html><html lang="ko"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>정책 지면 | 데이터노트</title>
-<meta name="description" content="정책 기사 20건">
-<meta property="og:title" content="정책 지면">
-<meta property="og:description" content="정책 기사 20건">
+<title>정책 | 데이터 블로그</title>
+<meta name="description" content="정책 분야 기록 20건">
+<meta property="og:title" content="정책">
+<meta property="og:description" content="정책 분야 기록 20건">
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="데이터노트">
+<meta property="og:site_name" content="데이터 블로그">
+<meta property="og:image" content="/brand/logo_512.png">
+<link rel="icon" href="/brand/favicon.ico">
+<link rel="apple-touch-icon" href="/brand/logo_160.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
 :root{
-  --paper:#FFF; --bg:#F4F5F6; --ink:#111417; --ink2:#3C4247; --ink3:#7A8288;
-  --rule:#DFE2E5; --hair:#EDEFF1; --red:#C8102E; --navy:#0F2B46; --tint:#F7F8F9;
+  --bg:#FFF; --alt:#F5F7FA; --ink:#1A1D21; --ink2:#454C54; --ink3:#6B747D;
+  --line:#E3E7EC; --hair:#EFF2F5; --blue:#0B5FA5; --blue2:#08406F; --chip:#E8F1F9;
 }
 @media(prefers-color-scheme:dark){:root{
-  --paper:#15181B; --bg:#0E1113; --ink:#EDEFF1; --ink2:#B7BEC4; --ink3:#828A91;
-  --rule:#2A3035; --hair:#20262A; --red:#E8697F; --navy:#9FC2E0; --tint:#1B2024;
+  --bg:#101316; --alt:#171B1F; --ink:#E9ECEF; --ink2:#B3BAC1; --ink3:#828B93;
+  --line:#262C32; --hair:#1D2227; --blue:#63AEE8; --blue2:#8FC6F0; --chip:#152634;
 }}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.7;
- font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+body{margin:0;background:var(--bg);color:var(--ink);font-size:16px;line-height:1.72;
+ font-family:"Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",-apple-system,sans-serif;
  -webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.serif{font-family:"Noto Serif KR",Georgia,serif}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px;background:var(--paper)}
-@media(min-width:1220px){.wrap{box-shadow:0 0 0 1px var(--hair)}}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
 
-/* 상단 유틸 */
-.util{border-bottom:1px solid var(--hair);font-size:11.5px;color:var(--ink3)}
-.util .in{max-width:1180px;margin:0 auto;padding:7px 20px;display:flex;
- justify-content:space-between;gap:12px}
-/* 제호 */
-.masthead{text-align:center;padding:20px 0 14px}
-.masthead .logo{display:inline-flex;align-items:center;gap:11px}
-.masthead .logo svg{display:block}
-.masthead .name{font-family:"Noto Serif KR",serif;font-weight:900;
- font-size:clamp(29px,5.4vw,44px);letter-spacing:-.03em;line-height:1}
-.masthead .en{font-size:10.5px;letter-spacing:.42em;color:var(--ink3);margin-top:7px}
-/* 섹션 메뉴 */
-nav.gnb{border-top:2px solid var(--ink);border-bottom:1px solid var(--rule);position:sticky;
- top:0;background:var(--paper);z-index:20}
-nav.gnb .in{display:flex;justify-content:center;gap:0;flex-wrap:wrap}
-nav.gnb a{font-size:15px;font-weight:500;padding:11px 20px;color:var(--ink);position:relative}
-nav.gnb a:hover{color:var(--red)}
-nav.gnb a.on{color:var(--red);font-weight:700}
-nav.gnb a.on::after{content:"";position:absolute;left:16px;right:16px;bottom:-1px;height:2px;
- background:var(--red)}
+/* 헤더 */
+header.top{border-bottom:1px solid var(--line);background:var(--bg);
+ position:sticky;top:0;z-index:30}
+header.top .in{max-width:1120px;margin:0 auto;padding:13px 24px;display:flex;
+ align-items:center;gap:16px}
+header.top .brand{display:flex;align-items:center;gap:11px;flex:0 0 auto}
+header.top .brand img{width:38px;height:38px;border-radius:50%;display:block;
+ border:1px solid var(--line)}
+header.top .brand .t{line-height:1.15}
+header.top .brand .ko{font-weight:700;font-size:17px;letter-spacing:-.02em}
+header.top .brand .en{font-size:9.5px;letter-spacing:.26em;color:var(--ink3);margin-top:2px}
+header.top nav{margin-left:auto;display:flex;gap:4px;flex-wrap:wrap}
+header.top nav a{font-size:14.5px;padding:7px 13px;border-radius:5px;color:var(--ink2)}
+header.top nav a:hover{background:var(--alt);color:var(--blue)}
+header.top nav a.on{color:var(--blue);font-weight:700;background:var(--chip)}
 
-/* 1면 */
-main{padding:24px 0 10px}
-.top{display:grid;grid-template-columns:2fr 1fr;gap:30px;padding-bottom:24px;
- border-bottom:1px solid var(--rule)}
-@media(max-width:880px){.top{grid-template-columns:1fr;gap:20px}}
-.hero .media{position:relative;display:block;background:var(--tint);overflow:hidden}
-.hero .media img,.hero .media video{width:100%;height:auto;display:block}
-.hero .media .play{position:absolute;left:14px;bottom:14px;background:rgba(0,0,0,.72);
- color:#fff;font-size:11px;padding:5px 10px;border-radius:2px;letter-spacing:.06em}
-.hero .cat{display:inline-block;color:var(--red);font-size:12px;font-weight:700;
- letter-spacing:.1em;margin:14px 0 6px}
-.hero h2{font-family:"Noto Serif KR",serif;font-weight:800;
- font-size:clamp(24px,3.4vw,35px);line-height:1.26;margin:0 0 10px;letter-spacing:-.03em;
- text-wrap:balance}
-.hero p{margin:0;color:var(--ink2);font-size:15.5px;line-height:1.66}
-.rank{border-top:2px solid var(--ink);padding-top:12px}
-.rank h3{font-size:13px;font-weight:800;margin:0 0 10px;letter-spacing:.04em}
-.rank ol{list-style:none;margin:0;padding:0;counter-reset:r}
-.rank li{counter-increment:r;border-bottom:1px solid var(--hair);padding:10px 0}
-.rank li:last-child{border:0}
-.rank li a{display:flex;gap:10px;font-size:14.5px;line-height:1.45}
-.rank li a::before{content:counter(r);color:var(--red);font-weight:800;font-size:13px;
- min-width:15px}
-.rank li a:hover{color:var(--red)}
+/* 히어로 */
+.hero{background:var(--alt);border-bottom:1px solid var(--line);padding:44px 0 40px;
+ margin-bottom:36px}
+.hero .in{max-width:1120px;margin:0 auto;padding:0 24px}
+.hero h1{font-size:clamp(28px,4.6vw,40px);margin:0 0 10px;letter-spacing:-.035em;
+ font-weight:700;line-height:1.2}
+.hero p{margin:0;color:var(--ink2);font-size:16.5px;max-width:60ch}
+.hero .stat{display:flex;gap:26px;margin-top:22px;flex-wrap:wrap}
+.hero .stat div{font-size:13px;color:var(--ink3)}
+.hero .stat b{display:block;font-size:24px;color:var(--blue);font-weight:700;
+ letter-spacing:-.02em;font-variant-numeric:tabular-nums}
 
-/* 지면 */
-.sec{padding:26px 0;border-bottom:1px solid var(--rule)}
-.sec:last-of-type{border:0}
-.sec-h{display:flex;align-items:baseline;gap:11px;margin-bottom:16px}
-.sec-h h3{margin:0;font-family:"Noto Serif KR",serif;font-weight:800;font-size:21px;
- letter-spacing:-.02em}
-.sec-h .bar{width:3px;height:19px;background:var(--red);border-radius:1px}
-.sec-h .more{margin-left:auto;font-size:12.5px;color:var(--ink3)}
-.sec-h .more:hover{color:var(--red)}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:22px}
-.c{display:block}
-.c .thumb{background:var(--tint);aspect-ratio:16/10;overflow:hidden;margin-bottom:10px;
- position:relative}
-.c .thumb img{width:100%;height:100%;object-fit:cover;display:block;
- transition:transform .35s ease}
-.c:hover .thumb img{transform:scale(1.035)}
-.c .thumb .vid{position:absolute;right:8px;top:8px;background:rgba(0,0,0,.7);color:#fff;
- font-size:10px;padding:3px 7px;border-radius:2px}
-.c .cat{font-size:11px;color:var(--red);font-weight:700;letter-spacing:.08em}
-.c h4{font-family:"Noto Serif KR",serif;font-weight:700;margin:5px 0 5px;font-size:16.5px;
- line-height:1.4;letter-spacing:-.02em}
-.c:hover h4{color:var(--red)}
-.c p{margin:0;color:var(--ink3);font-size:13px;line-height:1.55}
+/* 필터 칩 */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.filters a{font-size:13.5px;padding:7px 15px;border:1px solid var(--line);border-radius:20px;
+ color:var(--ink2);background:var(--bg)}
+.filters a:hover{border-color:var(--blue);color:var(--blue)}
+.filters a.on{background:var(--blue);border-color:var(--blue);color:#fff;font-weight:500}
+
+/* 목록 — NASA 형 가로 카드 */
+.list{display:flex;flex-direction:column;gap:0;margin-bottom:40px}
+.row{display:grid;grid-template-columns:232px 1fr;gap:24px;padding:22px 0;
+ border-bottom:1px solid var(--hair);align-items:start}
+.row:first-child{border-top:1px solid var(--hair)}
+@media(max-width:680px){.row{grid-template-columns:1fr;gap:12px}}
+.row .th{background:var(--alt);aspect-ratio:16/10;overflow:hidden;border-radius:6px}
+.row .th img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+.row:hover .th img{transform:scale(1.04)}
+.row .meta{display:flex;gap:9px;align-items:center;font-size:12px;color:var(--ink3);
+ margin-bottom:7px;flex-wrap:wrap}
+.row .meta .kind{background:var(--chip);color:var(--blue);padding:2px 9px;border-radius:3px;
+ font-weight:700;font-size:11px;letter-spacing:.04em}
+.row h3{margin:0 0 7px;font-size:19px;line-height:1.4;letter-spacing:-.025em;font-weight:700}
+.row:hover h3{color:var(--blue)}
+.row p{margin:0;color:var(--ink3);font-size:14px;line-height:1.62}
 
 /* 기사 */
-article{max-width:740px;margin:0 auto;padding:8px 0 20px}
-article .cat{color:var(--red);font-size:12.5px;font-weight:700;letter-spacing:.1em}
-article h1{font-family:"Noto Serif KR",serif;font-weight:800;
- font-size:clamp(25px,4.2vw,37px);line-height:1.28;margin:9px 0 14px;letter-spacing:-.032em;
- text-wrap:balance}
-.byline{border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);padding:10px 0;
- margin-bottom:24px;font-size:12.5px;color:var(--ink3);display:flex;gap:13px;flex-wrap:wrap}
-article .video{margin:0 0 26px;background:#000;aspect-ratio:16/9}
+article{max-width:760px;margin:0 auto;padding:6px 0 20px}
+article .meta{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--ink3);
+ margin-bottom:12px;flex-wrap:wrap}
+article .meta .kind{background:var(--chip);color:var(--blue);padding:3px 10px;border-radius:3px;
+ font-weight:700;font-size:11.5px}
+article h1{font-size:clamp(27px,4.4vw,38px);line-height:1.28;margin:0 0 16px;
+ letter-spacing:-.035em;font-weight:700;text-wrap:balance}
+article .video{margin:0 0 28px;background:#000;aspect-ratio:16/9;border-radius:8px;
+ overflow:hidden}
 article .video iframe{width:100%;height:100%;display:block;border:0}
-article h2{font-family:"Noto Serif KR",serif;font-weight:700;font-size:20px;
- margin:36px 0 11px;padding-top:15px;border-top:1px solid var(--hair);letter-spacing:-.02em}
-article h3{font-size:16.5px;font-weight:700;margin:24px 0 6px;color:var(--navy)}
-article p{margin:0 0 18px;font-size:17px;line-height:1.82}
-article p:first-of-type{font-size:18px}
-blockquote{margin:0 0 22px;padding:15px 20px;background:var(--tint);
- border-left:3px solid var(--red);font-size:15.5px;color:var(--ink2)}
-.tw{overflow-x:auto;margin:0 0 24px}
+article h2{font-size:21px;font-weight:700;margin:40px 0 12px;padding-top:18px;
+ border-top:1px solid var(--hair);letter-spacing:-.025em}
+article h3{font-size:17px;font-weight:700;margin:26px 0 7px;color:var(--blue2)}
+article p{margin:0 0 18px;font-size:16.5px;line-height:1.85;color:var(--ink2)}
+article p:first-of-type{font-size:18px;color:var(--ink)}
+blockquote{margin:0 0 22px;padding:16px 20px;background:var(--alt);border-radius:6px;
+ border-left:3px solid var(--blue);font-size:15.5px;color:var(--ink2)}
+.tw{overflow-x:auto;margin:0 0 24px;border:1px solid var(--line);border-radius:8px}
 table{border-collapse:collapse;width:100%;min-width:420px;font-size:14.5px}
-th,td{border-bottom:1px solid var(--hair);padding:10px 13px;text-align:left;vertical-align:top}
-th{background:var(--tint);font-size:12.5px;font-weight:700;border-bottom:2px solid var(--ink)}
+th,td{border-bottom:1px solid var(--hair);padding:11px 15px;text-align:left;vertical-align:top}
+th{background:var(--alt);font-size:12.5px;font-weight:700;color:var(--ink2)}
+tr:last-child td{border-bottom:0}
 td{font-variant-numeric:tabular-nums}
-ul,ol{margin:0 0 18px;padding-left:22px}li{margin-bottom:8px}
+ul,ol{margin:0 0 18px;padding-left:22px;color:var(--ink2)}li{margin-bottom:8px}
 ul.check{list-style:none;padding-left:2px}
 ul.check li{display:flex;gap:9px}
-.box{width:15px;height:15px;border:1.5px solid var(--ink3);flex:0 0 auto;margin-top:6px}
-pre{background:var(--tint);padding:13px 15px;overflow-x:auto;font-size:13.5px}
+.box{width:15px;height:15px;border:1.5px solid var(--ink3);border-radius:3px;
+ flex:0 0 auto;margin-top:5px}
+pre{background:var(--alt);padding:14px 16px;border-radius:6px;overflow-x:auto;font-size:13.5px}
 code{font-family:ui-monospace,monospace;font-size:.9em}
-figure{margin:26px 0}
-figure img,figure video{max-width:100%;height:auto;display:block;width:100%}
-figcaption{font-size:12.5px;color:var(--ink3);margin-top:9px;padding:5px 0 0;
- border-top:1px solid var(--hair)}
+figure{margin:28px 0}
+figure img{max-width:100%;height:auto;display:block;width:100%;border-radius:8px}
+figcaption{font-size:12.5px;color:var(--ink3);margin-top:10px}
 hr{border:0;border-top:1px solid var(--hair);margin:32px 0}
-.ad{margin:32px 0;padding:10px;border:1px dashed var(--rule);text-align:center;
- color:var(--ink3);font-size:11px;letter-spacing:.18em}
-.rel{border-top:2px solid var(--ink);margin-top:44px;padding-top:18px}
-.rel h3{font-size:13px;font-weight:800;margin:0 0 14px;letter-spacing:.04em}
+.ad{margin:32px 0;padding:11px;border:1px dashed var(--line);border-radius:6px;
+ text-align:center;color:var(--ink3);font-size:11.5px;letter-spacing:.16em}
 
 /* 푸터 */
-footer.site{background:var(--tint);border-top:1px solid var(--rule);margin-top:40px}
-footer.site .in{max-width:1180px;margin:0 auto;padding:26px 20px 46px;font-size:12.5px;
+footer.site{background:var(--alt);border-top:1px solid var(--line);margin-top:52px}
+footer.site .in{max-width:1120px;margin:0 auto;padding:32px 24px 52px;font-size:13px;
  color:var(--ink3);line-height:1.95}
-footer.site .brand{font-family:"Noto Serif KR",serif;font-weight:800;font-size:17px;
- color:var(--ink);margin-bottom:8px}
-footer.site .legal{display:flex;gap:8px 18px;flex-wrap:wrap;margin-top:10px;
- padding-top:12px;border-top:1px solid var(--rule)}
-footer.site a{text-decoration:underline}
+footer.site .fb{display:flex;align-items:center;gap:11px;margin-bottom:12px}
+footer.site .fb img{width:34px;height:34px;border-radius:50%}
+footer.site .fb b{font-size:16px;color:var(--ink)}
+footer.site a{color:var(--blue);text-decoration:none}
+footer.site a:hover{text-decoration:underline}
+footer.site .legal{display:flex;gap:7px 16px;flex-wrap:wrap;margin-top:12px;padding-top:13px;
+ border-top:1px solid var(--line);font-size:12px}
 </style>
 </head><body>
-<div class="util"><div class="in"><span>2026년 08월 28일</span>
-<span>원자료로 검증하는 경제·정책·역사</span></div></div>
-<div class="wrap">
-<header class="masthead">
-  <a class="logo" href="/"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-<rect x="1.5" y="1.5" width="37" height="37" rx="2" fill="none"
-      stroke="currentColor" stroke-width="2.2"/>
-<path d="M9 29 V15 M16 29 V11 M23 29 V19" stroke="currentColor" stroke-width="2.6"
-      stroke-linecap="square"/>
-<path d="M25 22.5 L29.5 27 L37 15" fill="none" stroke="var(--red)" stroke-width="3.4"
-      stroke-linecap="square" stroke-linejoin="miter"/>
-</svg><span>
-    <div class="name">데이터노트</div>
-    <div class="en">DATANOTE</div></span></a>
-</header>
-<nav class="gnb"><div class="in"><a href="/" class="">1면</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="on">정책</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록</a><a href="/about.html">소개</a></div></nav>
-<main><section class="sec"><div class="sec-h"><span class="bar"></span><h3>정책</h3><span class="more">20건</span></div><div class="cards"><a class="c" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><div class="thumb"><img src="/img/01_hero_%EC%9E%84%EA%B8%B0%EB%A7%8C%EB%A3%8C.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</h4><p>여는 말
+<header class="top"><div class="in">
+  <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
+    <span class="t"><span class="ko">데이터 블로그</span><br>
+    <span class="en">DATA BLOG</span></span></a>
+  <nav><a href="/" class="">전체</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="on">정책</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록</a><a href="/desk-%EA%B3%BC%ED%95%99.html" class="">과학</a><a href="/desk-%EC%83%9D%ED%99%9C.html" class="">생활</a>
+       <a href="/about.html">소개</a></nav>
+</div></header>
+<section class="hero"><div class="in"><h1>정책</h1><p>정책 분야에서 원자료로 확인한 기록 20건</p><div class="stat"><div><b>96</b>기록</div><div><b>5</b>분야</div><div><b>63</b>영상</div></div></div></section>
+<div class="wrap"><div class="filters"><a href="/" class="">전체 96</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제 22</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="on">정책 20</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록 54</a></div><div class="list"><a class="row" href="/01_%EC%9E%85%EB%B2%95%EC%B4%9D%EB%A1%A0.html"><div class="th"><img src="https://i.ytimg.com/vi/eLxfehJ7LoU/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>법안은 29배 늘었는데, 통과는 5분의 1이 됐다</h3><p>여는 말
 원자료로 직접 작성한 도표입니다
-제헌국회부터 지금까지, 국회에 발의된 법률안은 12만 1,784건입니다. 이 가운데 5만…</p></a><a class="c" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</h4><p>여는 말
+제헌국회부터 지금까지, 국회에 발의된 법률안은 12만 1,784건입니다. 이 가운데 5만 2,550건은 표결에 오르지 못한 채 사라졌습니다. 찬성도 반대도 …</p></div></a><a class="row" href="/02_%EB%B6%80%EB%8F%99%EC%82%B0.html"><div class="th"><img src="https://i.ytimg.com/vi/KPXTSN2UuO8/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>부동산 법안 2,837건 — 의원이 내면 6%, 위원장이 내면 98%</h3><p>여는 말
 원자료로 직접 작성한 도표입니다
-국회에 발의된 법률안 가운데 부동산만 따로 떼어 세어 봤습니다. 법안 이름에 부동산, 주…</p></a><a class="c" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</h4><p>여는 말
+국회에 발의된 법률안 가운데 부동산만 따로 떼어 세어 봤습니다. 법안 이름에 부동산, 주택, 임대차, 재건축, 분양 같은 말이 들어간 법률안은 제15대 이후…</p></div></a><a class="row" href="/03_%EA%B5%AD%ED%9A%8C%EB%B2%95.html"><div class="th"><img src="https://i.ytimg.com/vi/lIzH7TpNWZE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>국회가 자기 규칙을 바꾸려 한 1,448번 — 통과는 71번</h3><p>여는 말
 원자료로 직접 작성한 도표입니다
-요즘 국회에서는 국회법을 고치는 문제를 두고 논의가 이어지고 있습니다. 법안을 심사하는 …</p></a><a class="c" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>SK하이닉스 자사주 40조 취득, 옛날에는 위법</h4><p>40조원
+요즘 국회에서는 국회법을 고치는 문제를 두고 논의가 이어지고 있습니다. 법안을 심사하는 기간과 토론하는 방식을 바꾸자는 개정안들입니다. 그래서 세어봤습니다.…</p></div></a><a class="row" href="/04_%EC%9E%90%EC%82%AC%EC%A3%BC.html"><div class="th"><img src="https://i.ytimg.com/vi/m_rfH4yw-EE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>SK하이닉스 자사주 40조 취득, 옛날에는 위법</h3><p>40조원
 원자료로 직접 작성한 도표입니다
-어제 SK하이닉스가 40조원어치 자기 주식을 사들여 전부 없애겠다고 발표했습니다. 국내 …</p></a><a class="c" href="/05_%EB%B6%81%EB%AF%B8APEC.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>북미회담 11월 APEC서 추진, 국회 회의록엔 APEC 193번</h4><p>북미회담 18번
+어제 SK하이닉스가 40조원어치 자기 주식을 사들여 전부 없애겠다고 발표했습니다. 국내 상장사 가운데 가장 큰 규모입니다. 보통주 2,407만 주, 전체 발…</p></div></a><a class="row" href="/05_%EB%B6%81%EB%AF%B8APEC.html"><div class="th"><img src="https://i.ytimg.com/vi/RX5gST0rZn0/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>북미회담 11월 APEC서 추진, 국회 회의록엔 APEC 193번</h3><p>북미회담 18번
 11월, 그 회의에서
 원자료로 직접 작성한 도표입니다
-트럼프 미국 대통령이 오는 11월 중국 선전에서 열리는 AP…</p></a><a class="c" href="/06_%EC%A0%95%EB%B6%80%EC%A1%B0%EC%A7%81.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>검찰청 10월 폐지, 정부조직법 의원 발의 469건 중 통과는 7건</h4><p>78년 만에 사라지는 이름
+트럼프 미국 대통령이 오는 11월 중국 선전에서 열리는 APEC 정상회의를 계기로 김정은 북한 국무위원장과 만나는 방안을 추진하…</p></div></a><a class="row" href="/06_%EC%A0%95%EB%B6%80%EC%A1%B0%EC%A7%81.html"><div class="th"><img src="https://i.ytimg.com/vi/NGgR9nZ_nGE/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>검찰청 10월 폐지, 정부조직법 의원 발의 469건 중 통과는 7건</h3><p>78년 만에 사라지는 이름
 원자료로 직접 작성한 도표입니다
-오는 10월 2일, 검찰청이 없어집니다. 1948년에 만들어졌으니 78…</p></a><a class="c" href="/07_%EC%84%B8%EA%B8%88.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>세제개편안 8월 20일 입법예고 마감, 세금 법안 절반이 감면법인데</h4><p>통과는 2%
+오는 10월 2일, 검찰청이 없어집니다. 1948년에 만들어졌으니 78년 만입니다. 수사와 기소를 나눠 공소청과 중대범죄수사청으로 가는 개…</p></div></a><a class="row" href="/07_%EC%84%B8%EA%B8%88.html"><div class="th"><img src="/img/01_hero.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>세제개편안 8월 20일 입법예고 마감, 세금 법안 절반이 감면법인데</h3><p>통과는 2%
 오늘 마감입니다
 원자료로 직접 작성한 도표입니다
-정부가 이달 3일 내놓은 세제개편안의 입법예고가 오늘 끝납니다. 세법…</p></a><a class="c" href="/08_%EC%98%88%EC%82%B0%EC%95%88.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건</h4><p>64번 중 2번
+정부가 이달 3일 내놓은 세제개편안의 입법예고가 오늘 끝납니다. 세법 개정안 열한 건이 다음 달 국무회의를 거쳐 정기국회로 넘어갑니다. …</p></div></a><a class="row" href="/08_%EC%98%88%EC%82%B0%EC%95%88.html"><div class="th"><img src="https://i.ytimg.com/vi/C1QNPMlQjfU/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>2027년 예산안 다음 달 국회 제출, 정부 원안 그대로 통과된 건</h3><p>64번 중 2번
 다음 달에 넘어옵니다
 원자료로 직접 작성한 도표입니다
-정부가 2027년도 예산안을 다음 달 2일까지 국회에 내야 …</p></a><a class="c" href="/09_%ED%91%9C%EA%B2%B0%EC%9D%BC.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>8월 20일 국회 70건 처리, 4년 동안 표결한 날은 74일뿐이었다</h4><p>숫자로 먼저
-항목값표결 자료에는 아직 반영돼 있지 않다. ①에서 「어제」라고만어제 70건은 뉴스 값이다.「역대 국회 통틀어」라고 …</p></a><a class="c" href="/10_%ED%8A%B9%EB%B3%84%EA%B0%90%EC%B0%B0%EA%B4%80.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>특별감찰관 11년 만에 후보 추천, 그동안 법 고치자는 법안 19건은</h4><p>전부 폐기됐다
+정부가 2027년도 예산안을 다음 달 2일까지 국회에 내야 합니다. 국가재정법이 회계연도가 시작되기 120일 전까지 제출하도록 …</p></div></a><a class="row" href="/09_%ED%91%9C%EA%B2%B0%EC%9D%BC.html"><div class="th"><img src="https://i.ytimg.com/vi/rGq_R-qMFFg/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>8월 20일 국회 70건 처리, 4년 동안 표결한 날은 74일뿐이었다</h3><p>숫자로 먼저
+항목값표결 자료에는 아직 반영돼 있지 않다. ①에서 「어제」라고만어제 70건은 뉴스 값이다.「역대 국회 통틀어」라고 말하지 않는다. ②에서제20대 이후만 있는 자료다.예산안 처리 시한이…</p></div></a><a class="row" href="/10_%ED%8A%B9%EB%B3%84%EA%B0%90%EC%B0%B0%EA%B4%80.html"><div class="th"><img src="https://i.ytimg.com/vi/C8PcsMkv2a0/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>특별감찰관 11년 만에 후보 추천, 그동안 법 고치자는 법안 19건은</h3><p>전부 폐기됐다
 11년 만입니다
 원자료로 직접 작성한 도표입니다
-그저께 국회 본회의에서 특별감찰관 후보 세 명을 추천하는 안이 의결…</p></a><a class="c" href="/11_%EA%B3%B5%EC%A7%81%EC%9E%90%EB%B3%B4%EC%88%98.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>2026년 국회의원 연봉 1억 6,100만 원, 장관보다 많다</h4><p>누가 얼마를 받나
+그저께 국회 본회의에서 특별감찰관 후보 세 명을 추천하는 안이 의결됐습니다. 대통령의 친족과 측근을 감찰하는 자리입니다. 후보를 추천한…</p></div></a><a class="row" href="/11_%EA%B3%B5%EC%A7%81%EC%9E%90%EB%B3%B4%EC%88%98.html"><div class="th"><img src="https://i.ytimg.com/vi/P_cAT73hy-o/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>2026년 국회의원 연봉 1억 6,100만 원, 장관보다 많다</h3><p>누가 얼마를 받나
 원자료로 직접 작성한 도표입니다
-올해 공직자 연봉이 정해졌습니다. 대통령이 2억 7,177만 원, 국무총리가 2…</p></a><a class="c" href="/12_%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B2%95.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>세계 두 번째 AI 기본법 시행 7개월, 고치자는 법안 28건이 국회에</h4><p>있다
+올해 공직자 연봉이 정해졌습니다. 대통령이 2억 7,177만 원, 국무총리가 2억 1,069만 원입니다. 장관은 1억 5,493만 원, 차관은 1억…</p></div></a><a class="row" href="/12_%EC%9D%B8%EA%B3%B5%EC%A7%80%EB%8A%A5%EB%B2%95.html"><div class="th"><img src="https://i.ytimg.com/vi/YCvspp8Cj8c/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>세계 두 번째 AI 기본법 시행 7개월, 고치자는 법안 28건이 국회에</h3><p>있다
 법은 이미 있습니다
 원자료로 직접 작성한 도표입니다
-인공지능을 다루는 법이 우리나라에 이미 있습니다. 이름은 「인공지능 발전…</p></a><a class="c" href="/13_%EC%9E%84%EA%B8%88%EC%B1%84%EA%B6%8C.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>체불임금 8월 20일부터 6개월치, 임금채권보장법 통과율은 근로기준법의</h4><p>5배
+인공지능을 다루는 법이 우리나라에 이미 있습니다. 이름은 「인공지능 발전과 신뢰 기반 조성 등에 관한 기본법」입니다. 2024년 12월에 국…</p></div></a><a class="row" href="/13_%EC%9E%84%EA%B8%88%EC%B1%84%EA%B6%8C.html"><div class="th"><img src="/img/01_hero.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>체불임금 8월 20일부터 6개월치, 임금채권보장법 통과율은 근로기준법의</h3><p>5배
 8월 20일, 석 달이 여섯 달이 됐습니다
 원자료로 직접 작성한 도표입니다
-다니던 회사가 문을 닫으면 밀린 월급은 어떻게 될…</p></a><a class="c" href="/14_%ED%98%95%EC%82%AC%EC%86%8C%EC%86%A1.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>보완수사권 폐지 8월 24일 처리, 형사소송법 개정안 642건 중</h4><p>통과는 35건
+다니던 회사가 문을 닫으면 밀린 월급은 어떻게 될까요. 받을 곳이 없어진 셈인데, 나라가 대신 갚아 주는 제도가 있습…</p></div></a><a class="row" href="/14_%ED%98%95%EC%82%AC%EC%86%8C%EC%86%A1.html"><div class="th"><img src="/img/01_hero.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>보완수사권 폐지 8월 24일 처리, 형사소송법 개정안 642건 중</h3><p>통과는 35건
 8월 24일 국회에서
 원자료로 직접 작성한 도표입니다
-경찰이 넘긴 사건을 검사가 다시 들여다보는 것을 보완수사라고 …</p></a><a class="c" href="/15_%ED%91%9C%EA%B2%B0.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>국회 표결 8,420건 가운데 5,632건은 반대가 0이었다</h4><p>싸우는 국회
+경찰이 넘긴 사건을 검사가 다시 들여다보는 것을 보완수사라고 합니다. 그 권한을 없애는 법안이 8월 24일 국회 본회의에서 처리됐…</p></div></a><a class="row" href="/15_%ED%91%9C%EA%B2%B0.html"><div class="th"><img src="/img/01_hero.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>국회 표결 8,420건 가운데 5,632건은 반대가 0이었다</h3><p>싸우는 국회
 원자료로 직접 작성한 도표입니다
-국회 소식은 대체로 다투는 장면으로 전해집니다. 고성이 오가고 의사봉을 두고 실랑이가…</p></a><a class="c" href="/16_%EC%8B%A4%EC%A2%85.html"><div class="thumb"><img src="/img/01_hero.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>성인 실종엔 경보 문자가 안 갑니다, 넣자는 법안 아홉 건 21년 동안</h4><p>통과 0건
+국회 소식은 대체로 다투는 장면으로 전해집니다. 고성이 오가고 의사봉을 두고 실랑이가 벌어집니다. 회의장을 나가는 장면도 자주 나옵니다. 그런데 실제로 …</p></div></a><a class="row" href="/16_%EC%8B%A4%EC%A2%85.html"><div class="th"><img src="https://i.ytimg.com/vi/3v8Zh9F4MXc/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>성인 실종엔 경보 문자가 안 갑니다, 넣자는 법안 아홉 건 21년 동안</h3><p>통과 0건
 그 문자는 성인에게 오지 않습니다
 원자료로 직접 작성한 도표입니다
-휴대전화로 실종 경보 문자를 받아 보신 적이 있으실 …</p></a><a class="c" href="/17_%EC%9E%A5%EC%A0%84%EB%B8%8C%EB%A6%AC%ED%95%91_%EC%97%94%EB%B9%84%EB%94%94%EC%95%84.html"><div class="thumb"><img src="/img/01_%EC%A7%80%EC%88%98.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>엔비디아 실적 넷 다 컨센서스 상회, 그런데 처음엔 주가가 빠졌다</h4><p>간밤 미국장은 조용했습니다
+휴대전화로 실종 경보 문자를 받아 보신 적이 있으실 겁니다. 아이가 없어졌다거나, 치매를 앓는 어르신이 집을 나섰다는 내…</p></div></a><a class="row" href="/17_%EC%9E%A5%EC%A0%84%EB%B8%8C%EB%A6%AC%ED%95%91_%EC%97%94%EB%B9%84%EB%94%94%EC%95%84.html"><div class="th"><img src="/img/01_%EC%A7%80%EC%88%98.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>엔비디아 실적 넷 다 컨센서스 상회, 그런데 처음엔 주가가 빠졌다</h3><p>간밤 미국장은 조용했습니다
 원자료로 직접 작성한 도표입니다
-간밤 뉴욕 증시 세 지수는 나란히 소폭 내렸습니다. 에스앤피 오백은 마…</p></a><a class="c" href="/18_%EA%B3%B5%EC%86%8C%EC%B7%A8%EC%86%8C%EA%B6%8C.html"><div class="thumb"><img src="/img/01_%EB%91%90%EA%B8%80%EC%9E%90.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>특검에 공소취소권을 줄 것인가, 조문에서 바뀌는 것은 두 글자입니다</h4><p>두 글자가 다릅니다
+간밤 뉴욕 증시 세 지수는 나란히 소폭 내렸습니다. 에스앤피 오백은 마이너스 영 점 일이 퍼센트. 다우는 마이너스 영 점 영팔 퍼센트, 나…</p></div></a><a class="row" href="/18_%EA%B3%B5%EC%86%8C%EC%B7%A8%EC%86%8C%EA%B6%8C.html"><div class="th"><img src="https://i.ytimg.com/vi/K0lGIBwB8uQ/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>특검에 공소취소권을 줄 것인가, 조문에서 바뀌는 것은 두 글자입니다</h3><p>두 글자가 다릅니다
 원자료로 직접 작성한 도표입니다
-요즘 특별검사에게 공소취소권을 줄 것인가를 두고 논쟁이 있습니다. 법안 전체를…</p></a><a class="c" href="/19_%ED%96%89%EC%A0%95%EC%A1%B0%EC%82%AC%EA%B8%B0%EB%B3%B8%EB%B2%95.html"><div class="thumb"><img src="/img/01_%EB%AC%B4%EC%82%B0.png" alt="" loading="lazy"><span class="vid">영상</span></div><span class="cat">정책</span><h4>쿠팡이 공정위 조사를 거부했습니다, 근거 조문은 20년째 그대로입니다</h4><p>조사가 네 번 무산됐습니다
+요즘 특별검사에게 공소취소권을 줄 것인가를 두고 논쟁이 있습니다. 법안 전체를 놓고 다투는 것처럼 보이지만, 조문에서 실제로 바뀌는 부분은 짧습니…</p></div></a><a class="row" href="/19_%ED%96%89%EC%A0%95%EC%A1%B0%EC%82%AC%EA%B8%B0%EB%B3%B8%EB%B2%95.html"><div class="th"><img src="https://i.ytimg.com/vi/ye-GIKcw5e8/mqdefault.jpg" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span><span>·</span><span>영상</span></div><h3>쿠팡이 공정위 조사를 거부했습니다, 근거 조문은 20년째 그대로입니다</h3><p>조사가 네 번 무산됐습니다
 원자료로 직접 작성한 도표입니다
-공정거래위원회가 쿠팡을 조사하려다 번번이 돌아섰습니다. 첫 시도는 8월…</p></a><a class="c" href="/20_%EC%83%81%EC%9E%A5%ED%8F%90%EC%A7%80.html"><div class="thumb"><img src="/img/01_%EC%8B%9C%ED%96%89.png" alt="" loading="lazy"></div><span class="cat">정책</span><h4>코스닥 상폐 문턱 내년 1월 300억, 338곳이 걸리는데 표결한 적은</h4><p>없다
+공정거래위원회가 쿠팡을 조사하려다 번번이 돌아섰습니다. 첫 시도는 8월 19일이었습니다. 스무나흗날까지 거듭 찾아갔지만 한 번도 착수하지 …</p></div></a><a class="row" href="/20_%EC%83%81%EC%9E%A5%ED%8F%90%EC%A7%80.html"><div class="th"><img src="/img/01_%EC%8B%9C%ED%96%89.png" alt="" loading="lazy"></div><div><div class="meta"><span class="kind">정책</span><span>2026. 08. 28</span></div><h3>코스닥 상폐 문턱 내년 1월 300억, 338곳이 걸리는데 표결한 적은</h3><p>없다
 문턱이 올라갔습니다
 원자료로 직접 작성한 도표입니다
-주식을 하시는 분이라면 요즘 상장폐지 이야기를 자주 들으셨을 겁니다. 올…</p></a></div></section></main>
-</div>
+주식을 하시는 분이라면 요즘 상장폐지 이야기를 자주 들으셨을 겁니다. 올해 이월 십이일 금융위원회와 한국거래소가 부실기업을 빨리 내보내겠다는…</p></div></a></div></div>
 <footer class="site"><div class="in">
-  <div class="brand">데이터노트</div>
-  <div>원자료로 검증하는 경제·정책·역사</div>
-  <div>모든 수치는 공표 통계와 원문 기록에서 직접 집계했습니다.
-       기사마다 자료 출처와 집계 방법을 밝힙니다.</div>
-  <div style="margin-top:8px"><a href="/about.html">소개</a> ·
-       <a href="/contact.html">연락처</a> ·
-       <a href="/privacy.html">개인정보처리방침</a></div>
-  
+  <div class="fb"><img src="/brand/logo_80.png" alt=""><b>데이터 블로그</b></div>
+  <div>공표 통계와 원문 기록을 직접 집계합니다</div>
+  <div>모든 수치는 공표 통계와 원문 기록에서 <strong>직접 집계</strong>했습니다.
+       글마다 자료 출처와 집계 방법을 밝힙니다.</div>
+  <div style="margin-top:8px">
+    <a href="/about.html">소개</a> · <a href="/contact.html">연락처</a> ·
+    <a href="/privacy.html">개인정보처리방침</a></div>
+  <div class="legal"><span>등록된 언론사가 아닌 <strong>개인 데이터 기록 블로그</strong>입니다</span>
+    </div>
 </div></footer>
 </body></html>
