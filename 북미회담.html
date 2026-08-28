@@ -305,6 +305,21 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .top-btn:hover{transform:translateY(-3px)}
 @media(prefers-reduced-motion:reduce){.prog{transition:none}}
 
+/* ── 준비 중 분야 ── */
+.soon-box{text-align:center;padding:62px 26px;border:1.5px dashed var(--line);
+ border-radius:16px;margin-bottom:44px;background:var(--alt)}
+.soon-box .ico{width:54px;height:54px;border-radius:50%;background:var(--c,var(--blue));
+ color:#fff;display:flex;align-items:center;justify-content:center;font-size:23px;
+ margin:0 auto 18px}
+.soon-box h2{margin:0 0 10px;font-size:20px;letter-spacing:-.03em;font-weight:700}
+.soon-box p{margin:0 auto 22px;color:var(--ink3);font-size:15px;max-width:44ch;
+ line-height:1.72}
+.soon-go{display:inline-flex;align-items:center;gap:7px;padding:11px 24px;border-radius:24px;
+ background:var(--c,var(--blue));color:#fff;font-size:14px;font-weight:600;transition:.22s}
+.soon-go:hover{gap:12px;box-shadow:0 6px 20px rgba(11,95,208,.32)}
+.filters a.soon{opacity:.62;border-style:dashed}
+.filters a.soon::after{content:" 준비 중";font-size:11px;opacity:.75}
+
 /* ── 스크롤 등장 ── */
 .reveal{opacity:0;transform:translateY(20px)}
 .reveal.in{opacity:1;transform:none;transition:opacity .55s ease,transform .55s cubic-bezier(.22,1,.36,1)}
