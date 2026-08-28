@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 
-Sitemap: http://datablog.co.kr/sitemap.xml
+Sitemap: https://datablog.co.kr/sitemap.xml
