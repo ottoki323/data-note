@@ -300,6 +300,90 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .top-btn:hover{transform:translateY(-3px)}
 @media(prefers-reduced-motion:reduce){.prog{transition:none}}
 
+
+/* ── 2단 레이아웃 (사이드바 + 본문) ── */
+.shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+
+aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:4px 0 26px;scrollbar-width:thin}
+aside.side::-webkit-scrollbar{width:5px}
+aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+@media(max-width:900px){aside.side{position:static;max-height:none;
+ border-bottom:1px solid var(--line);margin-bottom:24px}}
+.side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
+ font-weight:700}
+.side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
+.side .sl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;
+ font-size:14.5px;color:var(--ink2);transition:.2s;position:relative}
+.side .sl .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--blue));
+ flex:0 0 auto;transition:.24s}
+.side .sl .n{margin-left:auto;font-size:12px;color:var(--ink3);
+ font-variant-numeric:tabular-nums}
+.side .sl:hover{background:var(--alt);color:var(--ink);padding-left:16px}
+.side .sl:hover .dot{transform:scale(1.5)}
+.side .sl.on{background:var(--c,var(--blue));color:#fff;font-weight:600}
+.side .sl.on .dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+.side .sl.on .n{color:rgba(255,255,255,.85)}
+.side .sl.soon{opacity:.55}
+.side .sl.soon .n::after{content:"준비";font-size:10px}
+.side .recent{display:flex;flex-direction:column;gap:2px}
+.side .rl{display:block;padding:9px 11px;border-radius:8px;font-size:13.5px;
+ line-height:1.46;color:var(--ink2);border-left:2px solid transparent;transition:.2s}
+.side .rl:hover{background:var(--alt);border-left-color:var(--c,var(--blue));
+ color:var(--ink);transform:translateX(3px)}
+.side .rl .k{font-size:10.5px;color:var(--c,var(--blue));display:block;margin-bottom:2px;
+ font-weight:600}
+.side .feedlink{display:flex;align-items:center;gap:7px;margin-top:22px;padding:9px 12px;
+ border:1px solid var(--line);border-radius:9px;font-size:12.5px;color:var(--ink3);
+ transition:.2s}
+.side .feedlink:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── 분야 대표 히어로 ── */
+.dhero{position:relative;overflow:hidden;border-radius:18px;margin-bottom:34px;
+ min-height:290px;display:flex;align-items:flex-end;
+ background:linear-gradient(135deg,var(--c,var(--blue)) 0%,var(--navy) 100%)}
+.dhero .bgi{position:absolute;inset:0;z-index:0}
+.dhero .bgi img{width:100%;height:100%;object-fit:cover;
+ transform:scale(1.06);transition:transform 8s ease-out;filter:saturate(1.05)}
+.dhero:hover .bgi img{transform:scale(1.13)}
+.dhero .vl{position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(6,15,28,.24) 0%,rgba(6,15,28,.7) 58%,
+   rgba(6,15,28,.94) 100%)}
+.dhero .orb{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;z-index:0;
+ animation:float 13s ease-in-out infinite}
+.dhero .orb1{width:250px;height:250px;background:var(--c,var(--blue));right:-40px;top:-70px}
+.dhero .orb2{width:190px;height:190px;background:#7FD3FF;right:150px;bottom:-80px;
+ animation-delay:-6s}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,18px)}}
+.dhero .in2{position:relative;z-index:2;padding:34px 34px 30px;width:100%}
+@media(max-width:640px){.dhero .in2{padding:24px 20px}}
+.dhero .lb{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.17);
+ border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);color:#fff;
+ font-size:11.5px;font-weight:700;letter-spacing:.1em;padding:6px 13px;border-radius:20px;
+ margin-bottom:14px}
+.dhero h2{margin:0 0 11px;font-size:clamp(21px,3.3vw,31px);line-height:1.26;color:#fff;
+ letter-spacing:-.035em;font-weight:700;text-shadow:0 2px 20px rgba(0,0,0,.42);
+ max-width:22ch}
+.dhero p{margin:0 0 16px;color:#CDE0F5;font-size:14.5px;max-width:52ch;line-height:1.64;
+ text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.dhero .rd{display:inline-flex;align-items:center;gap:7px;background:#fff;
+ color:var(--navy);font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:22px;
+ transition:.24s}
+.dhero:hover .rd{gap:12px;box-shadow:0 8px 26px rgba(0,0,0,.32)}
+.dhero .pulse{position:absolute;right:30px;top:30px;width:11px;height:11px;border-radius:50%;
+ background:#fff;z-index:2;box-shadow:0 0 0 0 rgba(255,255,255,.6);
+ animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}
+ 70%{box-shadow:0 0 0 15px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+
+@media(prefers-reduced-motion:reduce){
+ .dhero .orb,.dhero .pulse{animation:none}
+ .dhero .bgi img,.dhero:hover .bgi img{transform:none;transition:none}
+ .side .sl:hover,.side .rl:hover{transform:none}
+}
+
 /* ── 준비 중 분야 ── */
 .soon-box{text-align:center;padding:62px 26px;border:1.5px dashed var(--line);
  border-radius:16px;margin-bottom:44px;background:var(--alt)}
@@ -376,7 +460,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="wrap"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>6분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄」</h1><div class="video"><iframe src="https://www.youtube.com/embed/EVDVERZBBWw" title="종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><aside class="side"></aside><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>6분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>「종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄」</h1><div class="video"><iframe src="https://www.youtube.com/embed/EVDVERZBBWw" title="종이에 적힌 약속은 언제까지 지켜지나 — 1882년 조미조약의 한 줄" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>반드시 서로 돕는다</td><td>고종실록 · 1882년 4월 6일 · 조미조약 제1관</td></tr><tr><td>같은 문장을 여섯 번 더</td><td>고종실록 · 1883년 10월 27일 · 조영조약 제1관</td></tr><tr><td>처음 써 보다</td><td>고종실록 · 1885년 4월 7일</td></tr><tr><td>끝내 이루지 못했다</td><td>매천야록 · 1894년</td></tr><tr><td>먼저 떠난다고 말했다</td><td>속음청사 · 1905년 12월 8일</td></tr><tr><td>공관을 거두다</td><td>속음청사 · 1905년 12월 16일</td></tr><tr><td>각 공관이 거두어지다</td><td>속음청사 · 1905년 12월 30일</td></tr></tbody></table></div>
 <h2>반드시 서로 돕는다</h2>
 <p>종이에 적어 둔 약속은 언제까지 지켜질까요. 조선이 그걸 시험해 본 적이 있습니다.</p>
@@ -445,7 +529,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
 <h3>반드시 서로 돕는다, 숫자로는 어떻게 되나요?</h3>
 <p>1882년 4월 6일, 인천 제물포에서 조선과 미국이 조약을 맺습니다.</p>
 <h3>영원히 화평하고 우호한다, 숫자로는 어떻게 되나요?</h3>
-<p>제1관의 첫 문장은 이렇게 시작합니다.</p></article><section class="rel"><h3>기록 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/01_%EC%A7%80%EC%A7%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"></div><h4>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h4></a><a class="rc" href="/%EA%B0%80%EB%AD%84%EB%92%A4_%EB%AC%BC%ED%8F%AD%ED%83%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/4FzbbIRRVWw/mqdefault.jpg" alt="" loading="lazy"></div><h4>비를 빌고, 같은 해에 비를 멈춰 달라 빌었다 — 조선에 67번</h4></a><a class="rc" href="/%EA%B0%80%EC%A7%9C%EA%B2%A9%EB%AC%B8_1711.html"><div class="rt"><img src="https://i.ytimg.com/vi/9_MmCqOY9Tk/mqdefault.jpg" alt="" loading="lazy"></div><h4>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</h4></a><a class="rc" href="/%EA%B0%92%EC%9D%B4_%EC%95%84%EB%8B%88%EB%9D%BC_%EA%B3%A1%EC%8B%9D.html"><div class="rt"><img src="https://i.ytimg.com/vi/iqPfDwyo4XE/mqdefault.jpg" alt="" loading="lazy"></div><h4>쌀값 폭등…2,700년간 나라가 연 것은 곳간이었다</h4></a></div></section><nav class="pn"><a href="/%EC%A1%B0%EC%84%A0%EA%B7%80%EC%A1%B175%EB%AA%85_5%EB%B6%84%EB%8C%80%EB%B3%B8.html"><span>← 이전 기록</span><b>「나라 판 값 605만 원 — 작위 받은 75명 전체 명단」</b></a><a class="nx" href="/%EC%A3%BC%EC%A3%BC%EC%99%80_%EC%B2%A0%EB%8F%84.html"><span>다음 기록 →</span><b>SK하이닉스 40조를 주주에게</b></a></nav></div>
+<p>제1관의 첫 문장은 이렇게 시작합니다.</p></article><section class="rel"><h3>기록 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/01_%EC%A7%80%EC%A7%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"></div><h4>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h4></a><a class="rc" href="/%EA%B0%80%EB%AD%84%EB%92%A4_%EB%AC%BC%ED%8F%AD%ED%83%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/4FzbbIRRVWw/mqdefault.jpg" alt="" loading="lazy"></div><h4>비를 빌고, 같은 해에 비를 멈춰 달라 빌었다 — 조선에 67번</h4></a><a class="rc" href="/%EA%B0%80%EC%A7%9C%EA%B2%A9%EB%AC%B8_1711.html"><div class="rt"><img src="https://i.ytimg.com/vi/9_MmCqOY9Tk/mqdefault.jpg" alt="" loading="lazy"></div><h4>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</h4></a><a class="rc" href="/%EA%B0%92%EC%9D%B4_%EC%95%84%EB%8B%88%EB%9D%BC_%EA%B3%A1%EC%8B%9D.html"><div class="rt"><img src="https://i.ytimg.com/vi/iqPfDwyo4XE/mqdefault.jpg" alt="" loading="lazy"></div><h4>쌀값 폭등…2,700년간 나라가 연 것은 곳간이었다</h4></a></div></section><nav class="pn"><a href="/%EC%A1%B0%EC%84%A0%EA%B7%80%EC%A1%B175%EB%AA%85_5%EB%B6%84%EB%8C%80%EB%B3%B8.html"><span>← 이전 기록</span><b>「나라 판 값 605만 원 — 작위 받은 75명 전체 명단」</b></a><a class="nx" href="/%EC%A3%BC%EC%A3%BC%EC%99%80_%EC%B2%A0%EB%8F%84.html"><span>다음 기록 →</span><b>SK하이닉스 40조를 주주에게</b></a></nav></div></div>
 <footer class="site"><div class="in">
   <div class="fb"><img src="/brand/logo_80.png" alt=""><b>데이터 블로그</b></div>
   <div>숫자로 세상을 읽습니다</div>

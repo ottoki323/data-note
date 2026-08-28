@@ -302,6 +302,90 @@ hr{border:0;border-top:1px solid var(--hair);margin:34px 0}
 .top-btn:hover{transform:translateY(-3px)}
 @media(prefers-reduced-motion:reduce){.prog{transition:none}}
 
+
+/* ── 2단 레이아웃 (사이드바 + 본문) ── */
+.shell{display:grid;grid-template-columns:236px minmax(0,1fr);gap:38px;
+ max-width:1220px;margin:0 auto;padding:0 24px;align-items:start}
+@media(max-width:900px){.shell{grid-template-columns:1fr;gap:0}}
+
+aside.side{position:sticky;top:74px;max-height:calc(100vh - 96px);overflow-y:auto;
+ padding:4px 0 26px;scrollbar-width:thin}
+aside.side::-webkit-scrollbar{width:5px}
+aside.side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+@media(max-width:900px){aside.side{position:static;max-height:none;
+ border-bottom:1px solid var(--line);margin-bottom:24px}}
+.side h4{font-size:11px;letter-spacing:.16em;color:var(--ink3);margin:0 0 11px;
+ font-weight:700}
+.side .sec-list{display:flex;flex-direction:column;gap:3px;margin-bottom:26px}
+.side .sl{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:9px;
+ font-size:14.5px;color:var(--ink2);transition:.2s;position:relative}
+.side .sl .dot{width:8px;height:8px;border-radius:50%;background:var(--c,var(--blue));
+ flex:0 0 auto;transition:.24s}
+.side .sl .n{margin-left:auto;font-size:12px;color:var(--ink3);
+ font-variant-numeric:tabular-nums}
+.side .sl:hover{background:var(--alt);color:var(--ink);padding-left:16px}
+.side .sl:hover .dot{transform:scale(1.5)}
+.side .sl.on{background:var(--c,var(--blue));color:#fff;font-weight:600}
+.side .sl.on .dot{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.28)}
+.side .sl.on .n{color:rgba(255,255,255,.85)}
+.side .sl.soon{opacity:.55}
+.side .sl.soon .n::after{content:"준비";font-size:10px}
+.side .recent{display:flex;flex-direction:column;gap:2px}
+.side .rl{display:block;padding:9px 11px;border-radius:8px;font-size:13.5px;
+ line-height:1.46;color:var(--ink2);border-left:2px solid transparent;transition:.2s}
+.side .rl:hover{background:var(--alt);border-left-color:var(--c,var(--blue));
+ color:var(--ink);transform:translateX(3px)}
+.side .rl .k{font-size:10.5px;color:var(--c,var(--blue));display:block;margin-bottom:2px;
+ font-weight:600}
+.side .feedlink{display:flex;align-items:center;gap:7px;margin-top:22px;padding:9px 12px;
+ border:1px solid var(--line);border-radius:9px;font-size:12.5px;color:var(--ink3);
+ transition:.2s}
+.side .feedlink:hover{border-color:var(--blue);color:var(--blue)}
+
+/* ── 분야 대표 히어로 ── */
+.dhero{position:relative;overflow:hidden;border-radius:18px;margin-bottom:34px;
+ min-height:290px;display:flex;align-items:flex-end;
+ background:linear-gradient(135deg,var(--c,var(--blue)) 0%,var(--navy) 100%)}
+.dhero .bgi{position:absolute;inset:0;z-index:0}
+.dhero .bgi img{width:100%;height:100%;object-fit:cover;
+ transform:scale(1.06);transition:transform 8s ease-out;filter:saturate(1.05)}
+.dhero:hover .bgi img{transform:scale(1.13)}
+.dhero .vl{position:absolute;inset:0;
+ background:linear-gradient(180deg,rgba(6,15,28,.24) 0%,rgba(6,15,28,.7) 58%,
+   rgba(6,15,28,.94) 100%)}
+.dhero .orb{position:absolute;border-radius:50%;filter:blur(46px);opacity:.5;z-index:0;
+ animation:float 13s ease-in-out infinite}
+.dhero .orb1{width:250px;height:250px;background:var(--c,var(--blue));right:-40px;top:-70px}
+.dhero .orb2{width:190px;height:190px;background:#7FD3FF;right:150px;bottom:-80px;
+ animation-delay:-6s}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,18px)}}
+.dhero .in2{position:relative;z-index:2;padding:34px 34px 30px;width:100%}
+@media(max-width:640px){.dhero .in2{padding:24px 20px}}
+.dhero .lb{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.17);
+ border:1px solid rgba(255,255,255,.28);backdrop-filter:blur(8px);color:#fff;
+ font-size:11.5px;font-weight:700;letter-spacing:.1em;padding:6px 13px;border-radius:20px;
+ margin-bottom:14px}
+.dhero h2{margin:0 0 11px;font-size:clamp(21px,3.3vw,31px);line-height:1.26;color:#fff;
+ letter-spacing:-.035em;font-weight:700;text-shadow:0 2px 20px rgba(0,0,0,.42);
+ max-width:22ch}
+.dhero p{margin:0 0 16px;color:#CDE0F5;font-size:14.5px;max-width:52ch;line-height:1.64;
+ text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.dhero .rd{display:inline-flex;align-items:center;gap:7px;background:#fff;
+ color:var(--navy);font-weight:700;font-size:13.5px;padding:10px 20px;border-radius:22px;
+ transition:.24s}
+.dhero:hover .rd{gap:12px;box-shadow:0 8px 26px rgba(0,0,0,.32)}
+.dhero .pulse{position:absolute;right:30px;top:30px;width:11px;height:11px;border-radius:50%;
+ background:#fff;z-index:2;box-shadow:0 0 0 0 rgba(255,255,255,.6);
+ animation:pulse 2.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,.6)}
+ 70%{box-shadow:0 0 0 15px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}
+
+@media(prefers-reduced-motion:reduce){
+ .dhero .orb,.dhero .pulse{animation:none}
+ .dhero .bgi img,.dhero:hover .bgi img{transform:none;transition:none}
+ .side .sl:hover,.side .rl:hover{transform:none}
+}
+
 /* ── 준비 중 분야 ── */
 .soon-box{text-align:center;padding:62px 26px;border:1.5px dashed var(--line);
  border-radius:16px;margin-bottom:44px;background:var(--alt)}
@@ -378,7 +462,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="wrap"><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>외국 군대를 적은 1,848건</h1><div class="video"><iframe src="https://www.youtube.com/embed/bbWF0xBChk4" title="외국 군대를 적은 1,848건 — 조선이 함께 적은 말은 철수보다 군량이었다" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><p>조선이 함께 적은 말은 철수보다 군량이었다</p>
+<div class="shell"><aside class="side"></aside><div><article data-desk="기록"><div class="meta"><span class="kind">기록</span><span>2026년 08월 28일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>외국 군대를 적은 1,848건</h1><div class="video"><iframe src="https://www.youtube.com/embed/bbWF0xBChk4" title="외국 군대를 적은 1,848건 — 조선이 함께 적은 말은 철수보다 군량이었다" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture;web-share"></iframe></div><div class="ad">광고</div><p>조선이 함께 적은 말은 철수보다 군량이었다</p>
 <h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>대목</th><th>출전</th></tr></thead><tbody><tr><td>1593년 2월, 길에서 붙잡다</td><td>선조실록 · 선조 26년 2월 19일 · wna_12602019_011</td></tr><tr><td>같은 해 3월, 말먹이 콩</td><td>선조실록 · 선조 26년 3월 11일 · wna_12603011_005</td></tr><tr><td>철수를 적은 해들</td><td>선조실록 · 선조 26년 3월 7일 · wna_12603007_002</td></tr><tr><td>숫자가 말하지 않는 것</td><td>집계: 조선왕조실록 정본 348,925 기사 전수 · 국사편찬위원회</td></tr></tbody></table></div>
 <h2>여는 숫자</h2>
@@ -411,7 +495,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
 <h3>어떻게 세었나</h3>
 <p>센 방법을 먼저 밝힙니다. 실록 원문을 한 줄씩 다 읽었습니다.</p>
 <h2>출처</h2>
-<p>· 집계 근거 | 항목 | 값 | 근거 | |---|---|---| | 명군 기사 | 1,848건 | <code>天兵·天將·天朝兵</code> · 실록 정본 전수 | | 그중 선조 대 | 1,636건 | 1만 기사당 612.4건 (선조 26,716기사) | | 명군 × 군량 | 360건 | 같은 기사에 함께 나옴 | | 명군 × 철수 | 114건 | 같은 기사에 함께 나옴 | | 명군 × 주둔 | 108건 | 같은 기사에 함께 나옴 | | 철수 기사 전체 | 398건 | <code>撤兵·撤還·回兵·班師</code> | | 주둔 기사 전체 | 361건 | <code>留兵·留駐·屯駐</code> | | 군량 기사 전체 | 2,046건 | <code>糧餉·接濟·供饋</code> | | 연도별 철수 | 1592년 2 · 1593년 52 · 1598년 31 · 1599년 34 | | | 연도별 주둔 | 1598년 17 · 1599년 42 | | | 실록 정본 | 348,925기사 | 판본 5쌍(wnb·wob·wrb·wsb·wtb) 제외 | | 검산 | 왕대합 1,848 / 연도합 1,843 | 연도 정보 없는 기사 1,245건(0.36%) | 집계 코드: <code>스크립트/count_명군과_군량.py</code></p></article><section class="rel"><h3>기록 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/01_%EC%A7%80%EC%A7%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"></div><h4>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h4></a><a class="rc" href="/%EA%B0%80%EB%AD%84%EB%92%A4_%EB%AC%BC%ED%8F%AD%ED%83%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/4FzbbIRRVWw/mqdefault.jpg" alt="" loading="lazy"></div><h4>비를 빌고, 같은 해에 비를 멈춰 달라 빌었다 — 조선에 67번</h4></a><a class="rc" href="/%EA%B0%80%EC%A7%9C%EA%B2%A9%EB%AC%B8_1711.html"><div class="rt"><img src="https://i.ytimg.com/vi/9_MmCqOY9Tk/mqdefault.jpg" alt="" loading="lazy"></div><h4>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</h4></a><a class="rc" href="/%EA%B0%92%EC%9D%B4_%EC%95%84%EB%8B%88%EB%9D%BC_%EA%B3%A1%EC%8B%9D.html"><div class="rt"><img src="https://i.ytimg.com/vi/iqPfDwyo4XE/mqdefault.jpg" alt="" loading="lazy"></div><h4>쌀값 폭등…2,700년간 나라가 연 것은 곳간이었다</h4></a></div></section><nav class="pn"><a href="/%EB%8D%94%EC%9C%84%EB%B3%B4%EB%8B%A4_%EC%B6%94%EC%9C%84.html"><span>← 이전 기록</span><b>온열질환 3,089명…조선왕조실록엔 16건뿐이었다</b></a><a class="nx" href="/%EB%AC%BC%EA%B0%80.html"><span>다음 기록 →</span><b>한은 &quot;8월 물가 다시 오른다&quot;</b></a></nav></div>
+<p>· 집계 근거 | 항목 | 값 | 근거 | |---|---|---| | 명군 기사 | 1,848건 | <code>天兵·天將·天朝兵</code> · 실록 정본 전수 | | 그중 선조 대 | 1,636건 | 1만 기사당 612.4건 (선조 26,716기사) | | 명군 × 군량 | 360건 | 같은 기사에 함께 나옴 | | 명군 × 철수 | 114건 | 같은 기사에 함께 나옴 | | 명군 × 주둔 | 108건 | 같은 기사에 함께 나옴 | | 철수 기사 전체 | 398건 | <code>撤兵·撤還·回兵·班師</code> | | 주둔 기사 전체 | 361건 | <code>留兵·留駐·屯駐</code> | | 군량 기사 전체 | 2,046건 | <code>糧餉·接濟·供饋</code> | | 연도별 철수 | 1592년 2 · 1593년 52 · 1598년 31 · 1599년 34 | | | 연도별 주둔 | 1598년 17 · 1599년 42 | | | 실록 정본 | 348,925기사 | 판본 5쌍(wnb·wob·wrb·wsb·wtb) 제외 | | 검산 | 왕대합 1,848 / 연도합 1,843 | 연도 정보 없는 기사 1,245건(0.36%) | 집계 코드: <code>스크립트/count_명군과_군량.py</code></p></article><section class="rel"><h3>기록 분야의 다른 기록</h3><div class="rg"><a class="rc" href="/01_%EC%A7%80%EC%A7%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/lBfeNuxOSHk/mqdefault.jpg" alt="" loading="lazy"></div><h4>조선의 지진 1,764건 — 왕은 땅이 흔들리면 정승을 바꿨다</h4></a><a class="rc" href="/%EA%B0%80%EB%AD%84%EB%92%A4_%EB%AC%BC%ED%8F%AD%ED%83%84.html"><div class="rt"><img src="https://i.ytimg.com/vi/4FzbbIRRVWw/mqdefault.jpg" alt="" loading="lazy"></div><h4>비를 빌고, 같은 해에 비를 멈춰 달라 빌었다 — 조선에 67번</h4></a><a class="rc" href="/%EA%B0%80%EC%A7%9C%EA%B2%A9%EB%AC%B8_1711.html"><div class="rt"><img src="https://i.ytimg.com/vi/9_MmCqOY9Tk/mqdefault.jpg" alt="" loading="lazy"></div><h4>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</h4></a><a class="rc" href="/%EA%B0%92%EC%9D%B4_%EC%95%84%EB%8B%88%EB%9D%BC_%EA%B3%A1%EC%8B%9D.html"><div class="rt"><img src="https://i.ytimg.com/vi/iqPfDwyo4XE/mqdefault.jpg" alt="" loading="lazy"></div><h4>쌀값 폭등…2,700년간 나라가 연 것은 곳간이었다</h4></a></div></section><nav class="pn"><a href="/%EB%8D%94%EC%9C%84%EB%B3%B4%EB%8B%A4_%EC%B6%94%EC%9C%84.html"><span>← 이전 기록</span><b>온열질환 3,089명…조선왕조실록엔 16건뿐이었다</b></a><a class="nx" href="/%EB%AC%BC%EA%B0%80.html"><span>다음 기록 →</span><b>한은 &quot;8월 물가 다시 오른다&quot;</b></a></nav></div></div>
 <footer class="site"><div class="in">
   <div class="fb"><img src="/brand/logo_80.png" alt=""><b>데이터 블로그</b></div>
   <div>숫자로 세상을 읽습니다</div>
