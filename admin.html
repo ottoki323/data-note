@@ -1,0 +1,47 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>방문자 통계 · 데이터 블로그</title><style>
+:root{--bg:#0A0F16;--card:#111A24;--ink:#E8EEF5;--ink2:#A9BCCE;--ink3:#71869B;
+--line:#1E2A38;--blue:#5AA2F5;--good:#4FC7B6;--warn:#E8A34F}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.65;
+font-family:"Noto Sans KR",-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+.w{max-width:1180px;margin:0 auto;padding:26px 22px 70px}
+h1{font-size:24px;margin:0 0 4px;letter-spacing:-.03em}
+.sub{color:var(--ink3);font-size:13px;margin-bottom:26px}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;
+margin-bottom:30px}
+.k{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:17px 19px}
+.k b{display:block;font-size:29px;font-weight:700;letter-spacing:-.03em;color:var(--blue);
+font-variant-numeric:tabular-nums;line-height:1.15}
+.k span{font-size:12.5px;color:var(--ink3);margin-top:4px;display:block}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+@media(max-width:820px){.g{grid-template-columns:1fr}}
+.c{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:19px 21px}
+.c h2{font-size:14.5px;margin:0 0 14px;letter-spacing:-.02em;color:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th,td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--line)}
+th{color:var(--ink3);font-size:11.5px;font-weight:600;letter-spacing:.04em}
+td{color:var(--ink2)}
+td.n{text-align:right;font-variant-numeric:tabular-nums;color:var(--blue);font-weight:600}
+tr:last-child td{border-bottom:0}
+.bar{height:5px;background:var(--blue);border-radius:3px;min-width:2px}
+.spark{display:flex;align-items:flex-end;gap:3px;height:72px;margin-top:6px}
+.spark i{flex:1;background:linear-gradient(180deg,var(--blue),rgba(90,162,245,.25));
+border-radius:2px 2px 0 0;min-height:2px}
+.note{background:var(--card);border:1px solid var(--line);border-left:3px solid var(--warn);
+border-radius:10px;padding:16px 19px;color:var(--ink2);font-size:13.5px;line-height:1.8}
+.note code{background:rgba(255,255,255,.07);padding:1px 6px;border-radius:4px;font-size:12.5px}
+a{color:var(--blue)}
+</style></head><body>
+<div class="w"><h1>방문자 통계</h1>
+<div class="sub">데이터 블로그 · 갱신 2026-08-28 13:49 ·
+<a href="/">사이트로</a></div><div class="note">
+<b>아직 연결되지 않았습니다.</b><br>
+1. <a href="https://analytics.google.com" target="_blank">analytics.google.com</a> 에서
+   GA4 속성을 만들고 측정 ID(<code>G-XXXXXXXXXX</code>)를 받으세요.<br>
+2. 그 값을 알려주시면 사이트에 심고 배포합니다.<br>
+3. 하루쯤 지나 데이터가 쌓이면 <code>python stats.py</code> 로 이 페이지가 채워집니다.<br><br>
+심고 나면 <b>방문자 수·유입 경로·페이지별 체류시간·이동 경로·기기·지역</b>이
+여기에 모입니다.</div></div></body></html>
