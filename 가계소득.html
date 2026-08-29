@@ -122,6 +122,14 @@ article .video{margin:0 0 30px;background:#000;aspect-ratio:16/9;border-radius:1
  overflow:hidden;box-shadow:0 8px 30px rgba(11,31,58,.16)}
 article .video iframe{width:100%;height:100%;display:block;border:0}
 article .vlink{margin:-22px 0 30px;text-align:right;font-size:.86rem}
+/* 동적 차트 — 화면에 들어올 때 막대가 자란다. 원자료로 직접 그린 것이다 */
+article figure.chart{margin:30px 0;padding:22px 20px 16px;background:var(--alt);
+  border:1px solid var(--hair);border-radius:12px;overflow-x:auto}
+article figure.chart svg{display:block;margin:0 auto}
+article figure.chart+figure.chart{margin-top:18px}
+/* 차트 안 <style> 이 아이디 선택자라 우선순위가 높다. 그래서 !important 를 쓴다 */
+article figure.chart.wait rect{animation-play-state:paused!important}
+article figure.chart.go rect{animation-play-state:running!important}
 article .vlink a{color:var(--ink3);text-decoration:none;border-bottom:1px solid transparent;
   transition:color .18s,border-color .18s}
 article .vlink a:hover{color:var(--blue);border-bottom-color:var(--blue)}
@@ -468,8 +476,92 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl on" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">23</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">21</span></a><a class="sl" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">54</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="경제" href="/%EA%B5%90%EC%9C%A1%EA%B2%A9%EC%B0%A8.html"><span class="k">경제</span>대학 교육비 격차 290만 원…그 격차는 초등학교에서 이미 시작됐다</a><a class="rl" data-desk="기록" href="/%ED%86%B5%EA%B3%B5.html"><span class="k">기록</span>민생물가 대책회의…조선은 값을 잡으려 규제를 풀었다 (본편)</a><a class="rl" data-desk="기록" href="/%ED%83%9C%ED%92%8D_%EC%A1%B0%EC%9A%B4.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%B2%AD%EC%9B%90.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%95%EB%85%84.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%80%ED%99%94.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%9D%98%EB%85%80.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%96%91%EB%A1%9C%EC%97%B0.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 27일</span><span>·</span><span>4분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>2026년 2분기 소득 4.5% 늘었다…일해서 번 돈은 0.8%</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl on" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">23</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">21</span></a><a class="sl" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">54</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="경제" href="/%EA%B5%90%EC%9C%A1%EA%B2%A9%EC%B0%A8.html"><span class="k">경제</span>대학 교육비 격차 290만 원…그 격차는 초등학교에서 이미 시작됐다</a><a class="rl" data-desk="기록" href="/%ED%86%B5%EA%B3%B5.html"><span class="k">기록</span>민생물가 대책회의…조선은 값을 잡으려 규제를 풀었다 (본편)</a><a class="rl" data-desk="기록" href="/%ED%83%9C%ED%92%8D_%EC%A1%B0%EC%9A%B4.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%B2%AD%EC%9B%90.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%95%EB%85%84.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%80%ED%99%94.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%9D%98%EB%85%80.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%96%91%EB%A1%9C%EC%97%B0.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 27일</span><span>·</span><span>8분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>2026년 2분기 소득 4.5% 늘었다…일해서 번 돈은 0.8%</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>가구당 월평균 소득</td><td>529만 5천 원 · +4.5% (12분기 연속)</td></tr><tr><td>근로소득</td><td>321만 8천 원 · <strong>+0.8%</strong></td></tr><tr><td>사업소득</td><td>97만 7천 원 · +3.8%</td></tr><tr><td>이전소득</td><td>93만 1천 원 · +20.4% (공적이전 +27.6%)</td></tr><tr><td>소비지출</td><td>293만 2천 원 · +3.4%</td></tr><tr><td>처분가능소득</td><td>423만 5천 원 · +5.2%</td></tr><tr><td>흑자액</td><td>130만 2천 원 · +9.6%</td></tr><tr><td>실질소득 / 실질소비지출</td><td>+1.5% / <strong>+0.4%</strong></td></tr><tr><td>5분위배율</td><td>4.97배 (전년동기 5.45배) · 2006년 작성 이후 분기 최저</td></tr><tr><td>1분위 / 5분위 총소득</td><td>+7.5% / +3.8%</td></tr><tr><td>1분위 / 5분위 이전소득</td><td>+9.8% / <strong>+31.9%</strong></td></tr></tbody></table></div>
+<figure class="chart" style="margin:24px 0">
+<svg viewBox="0 0 640 230" width="100%" height="auto" role="img"
+     aria-label="가구 소득은 이렇게 들어옵니다" style="max-width:640px;font-family:inherit">
+<style>
+#c0 .ti{font-size:17px;font-weight:700;fill:#14201a}
+#c0 .su{font-size:12.5px;fill:#6f7c74}
+#c0 .lb{font-size:13px;fill:#46534a}
+#c0 .vl{font-size:14px;font-weight:600;fill:#46534a;font-variant-numeric:tabular-nums}
+#c0 .vh{fill:#06643a}
+#c0 .ba{fill:#bcd3c3}
+#c0 .hi{fill:#06643a}
+#c0 .sr{font-size:11.5px;fill:#8b968e}
+#c0 rect{width:0;animation:gc0 .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes gc0{to{width:var(--w)}}
+@media (prefers-color-scheme:dark){
+ #c0 .ti{fill:#e5ebe6} #c0 .su,#c0 .lb,#c0 .vl{fill:#a2aea6}
+ #c0 .vh{fill:#57d492} #c0 .ba{fill:#2e4438} #c0 .hi{fill:#57d492}
+ #c0 .sr{fill:#7a867e}}
+@media (prefers-reduced-motion:reduce){
+ #c0 rect{animation:none;width:var(--w)}}
+</style>
+<g id="c0">
+<text x="0" y="22" class="ti">가구 소득은 이렇게 들어옵니다</text>
+<text x="0" y="42" class="su">2026년 2분기 · 가구당 월평균</text>
+<text x="120" y="78" class="lb" text-anchor="end">근로소득</text><rect x="132" y="62" height="22" rx="3" class="hi" style="--w:412.0px;animation-delay:0.00s"/><text x="554.0" y="78" class="vl vh">322</text><text x="120" y="124" class="lb" text-anchor="end">사업소득</text><rect x="132" y="108" height="22" rx="3" class="ba" style="--w:125.1px;animation-delay:0.12s"/><text x="267.08514605344936" y="124" class="vl ">98</text><text x="120" y="170" class="lb" text-anchor="end">이전소득</text><rect x="132" y="154" height="22" rx="3" class="ba" style="--w:119.2px;animation-delay:0.24s"/><text x="261.1957737725295" y="170" class="vl ">93</text>
+<text x="0" y="222" class="sr">자료 국가데이터처 가계동향조사 · 원자료로 직접 작성</text>
+</g></svg>
+</figure>
+<figure class="chart" style="margin:24px 0">
+<svg viewBox="0 0 640 184" width="100%" height="auto" role="img"
+     aria-label="위아래 소득 격차" style="max-width:640px;font-family:inherit">
+<style>
+#c1 .ti{font-size:17px;font-weight:700;fill:#14201a}
+#c1 .su{font-size:12.5px;fill:#6f7c74}
+#c1 .lb{font-size:13px;fill:#46534a}
+#c1 .vl{font-size:14px;font-weight:600;fill:#46534a;font-variant-numeric:tabular-nums}
+#c1 .vh{fill:#06643a}
+#c1 .ba{fill:#bcd3c3}
+#c1 .hi{fill:#06643a}
+#c1 .sr{font-size:11.5px;fill:#8b968e}
+#c1 rect{width:0;animation:gc1 .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes gc1{to{width:var(--w)}}
+@media (prefers-color-scheme:dark){
+ #c1 .ti{fill:#e5ebe6} #c1 .su,#c1 .lb,#c1 .vl{fill:#a2aea6}
+ #c1 .vh{fill:#57d492} #c1 .ba{fill:#2e4438} #c1 .hi{fill:#57d492}
+ #c1 .sr{fill:#7a867e}}
+@media (prefers-reduced-motion:reduce){
+ #c1 rect{animation:none;width:var(--w)}}
+</style>
+<g id="c1">
+<text x="0" y="22" class="ti">위아래 소득 격차</text>
+<text x="0" y="42" class="su">소득 5분위배율 · 전년 2분기와 견줌</text>
+<text x="120" y="78" class="lb" text-anchor="end">2025년 2분기</text><rect x="132" y="62" height="22" rx="3" class="ba" style="--w:412.0px;animation-delay:0.00s"/><text x="554.0" y="78" class="vl ">5.45</text><text x="120" y="124" class="lb" text-anchor="end">2026년 2분기</text><rect x="132" y="108" height="22" rx="3" class="hi" style="--w:375.7px;animation-delay:0.12s"/><text x="517.7137614678899" y="124" class="vl vh">4.97</text>
+<text x="0" y="176" class="sr">자료 국가데이터처 가계동향조사 · 원자료로 직접 작성</text>
+</g></svg>
+</figure>
+<figure class="chart" style="margin:24px 0">
+<svg viewBox="0 0 640 230" width="100%" height="auto" role="img"
+     aria-label="무엇이 소득을 늘렸나" style="max-width:640px;font-family:inherit">
+<style>
+#c2 .ti{font-size:17px;font-weight:700;fill:#14201a}
+#c2 .su{font-size:12.5px;fill:#6f7c74}
+#c2 .lb{font-size:13px;fill:#46534a}
+#c2 .vl{font-size:14px;font-weight:600;fill:#46534a;font-variant-numeric:tabular-nums}
+#c2 .vh{fill:#06643a}
+#c2 .ba{fill:#bcd3c3}
+#c2 .hi{fill:#06643a}
+#c2 .sr{font-size:11.5px;fill:#8b968e}
+#c2 rect{width:0;animation:gc2 .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes gc2{to{width:var(--w)}}
+@media (prefers-color-scheme:dark){
+ #c2 .ti{fill:#e5ebe6} #c2 .su,#c2 .lb,#c2 .vl{fill:#a2aea6}
+ #c2 .vh{fill:#57d492} #c2 .ba{fill:#2e4438} #c2 .hi{fill:#57d492}
+ #c2 .sr{fill:#7a867e}}
+@media (prefers-reduced-motion:reduce){
+ #c2 rect{animation:none;width:var(--w)}}
+</style>
+<g id="c2">
+<text x="0" y="22" class="ti">무엇이 소득을 늘렸나</text>
+<text x="0" y="42" class="su">2026년 2분기 · 전년동기 대비</text>
+<text x="120" y="78" class="lb" text-anchor="end">근로소득</text><rect x="132" y="62" height="22" rx="3" class="ba" style="--w:16.2px;animation-delay:0.00s"/><text x="158.15686274509804" y="78" class="vl ">0.8</text><text x="120" y="124" class="lb" text-anchor="end">사업소득</text><rect x="132" y="108" height="22" rx="3" class="ba" style="--w:76.7px;animation-delay:0.12s"/><text x="218.7450980392157" y="124" class="vl ">3.8</text><text x="120" y="170" class="lb" text-anchor="end">이전소득</text><rect x="132" y="154" height="22" rx="3" class="hi" style="--w:412.0px;animation-delay:0.24s"/><text x="554.0" y="170" class="vl vh">20.4</text>
+<text x="0" y="222" class="sr">자료 국가데이터처 가계동향조사 · 원자료로 직접 작성</text>
+</g></svg>
+</figure>
 <h2>오늘 낮에 나온 숫자</h2>
 <p>2026년 8월 27일 낮 열두 시, 국가데이터처가 새 조사 결과를 냈습니다. 2분기 가계동향입니다.</p>
 <p>가구 소득이 또 늘었다는 소식입니다. 열두 분기, 그러니까 삼 년 내리 늘었습니다.</p>
@@ -548,6 +640,22 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
       el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
       io.observe(el);
     });
+  }
+
+  // 동적 차트 — 화면에 들어올 때 막대가 자라게 한다.
+  // 자바스크립트로 먼저 멈춰 두므로, 스크립트가 안 돌면 예전처럼 바로 그려진다
+  // (막대가 영영 안 보이는 사고를 막는다).
+  var charts = document.querySelectorAll('figure.chart');
+  if (charts.length && !reduce && 'IntersectionObserver' in window) {
+    charts.forEach(function(f){ f.classList.add('wait'); });
+    var co = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('go');
+        co.unobserve(e.target);
+      });
+    }, {rootMargin: '0px 0px -60px 0px', threshold: 0.15});
+    charts.forEach(function(f){ co.observe(f); });
   }
 
   // 검색 — 제목·요약·분야를 훑는다

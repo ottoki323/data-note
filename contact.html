@@ -122,6 +122,14 @@ article .video{margin:0 0 30px;background:#000;aspect-ratio:16/9;border-radius:1
  overflow:hidden;box-shadow:0 8px 30px rgba(11,31,58,.16)}
 article .video iframe{width:100%;height:100%;display:block;border:0}
 article .vlink{margin:-22px 0 30px;text-align:right;font-size:.86rem}
+/* 동적 차트 — 화면에 들어올 때 막대가 자란다. 원자료로 직접 그린 것이다 */
+article figure.chart{margin:30px 0;padding:22px 20px 16px;background:var(--alt);
+  border:1px solid var(--hair);border-radius:12px;overflow-x:auto}
+article figure.chart svg{display:block;margin:0 auto}
+article figure.chart+figure.chart{margin-top:18px}
+/* 차트 안 <style> 이 아이디 선택자라 우선순위가 높다. 그래서 !important 를 쓴다 */
+article figure.chart.wait rect{animation-play-state:paused!important}
+article figure.chart.go rect{animation-play-state:running!important}
 article .vlink a{color:var(--ink3);text-decoration:none;border-bottom:1px solid transparent;
   transition:color .18s,border-color .18s}
 article .vlink a:hover{color:var(--blue);border-bottom-color:var(--blue)}
@@ -507,6 +515,22 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
       el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
       io.observe(el);
     });
+  }
+
+  // 동적 차트 — 화면에 들어올 때 막대가 자라게 한다.
+  // 자바스크립트로 먼저 멈춰 두므로, 스크립트가 안 돌면 예전처럼 바로 그려진다
+  // (막대가 영영 안 보이는 사고를 막는다).
+  var charts = document.querySelectorAll('figure.chart');
+  if (charts.length && !reduce && 'IntersectionObserver' in window) {
+    charts.forEach(function(f){ f.classList.add('wait'); });
+    var co = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('go');
+        co.unobserve(e.target);
+      });
+    }, {rootMargin: '0px 0px -60px 0px', threshold: 0.15});
+    charts.forEach(function(f){ co.observe(f); });
   }
 
   // 검색 — 제목·요약·분야를 훑는다

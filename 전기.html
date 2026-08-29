@@ -122,6 +122,14 @@ article .video{margin:0 0 30px;background:#000;aspect-ratio:16/9;border-radius:1
  overflow:hidden;box-shadow:0 8px 30px rgba(11,31,58,.16)}
 article .video iframe{width:100%;height:100%;display:block;border:0}
 article .vlink{margin:-22px 0 30px;text-align:right;font-size:.86rem}
+/* 동적 차트 — 화면에 들어올 때 막대가 자란다. 원자료로 직접 그린 것이다 */
+article figure.chart{margin:30px 0;padding:22px 20px 16px;background:var(--alt);
+  border:1px solid var(--hair);border-radius:12px;overflow-x:auto}
+article figure.chart svg{display:block;margin:0 auto}
+article figure.chart+figure.chart{margin-top:18px}
+/* 차트 안 <style> 이 아이디 선택자라 우선순위가 높다. 그래서 !important 를 쓴다 */
+article figure.chart.wait rect{animation-play-state:paused!important}
+article figure.chart.go rect{animation-play-state:running!important}
 article .vlink a{color:var(--ink3);text-decoration:none;border-bottom:1px solid transparent;
   transition:color .18s,border-color .18s}
 article .vlink a:hover{color:var(--blue);border-bottom-color:var(--blue)}
@@ -468,8 +476,36 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
        <a href="/about.html">소개</a></nav>
 </div></header>
 
-<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl on" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">23</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">21</span></a><a class="sl" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">54</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="경제" href="/%EA%B5%90%EC%9C%A1%EA%B2%A9%EC%B0%A8.html"><span class="k">경제</span>대학 교육비 격차 290만 원…그 격차는 초등학교에서 이미 시작됐다</a><a class="rl" data-desk="기록" href="/%ED%86%B5%EA%B3%B5.html"><span class="k">기록</span>민생물가 대책회의…조선은 값을 잡으려 규제를 풀었다 (본편)</a><a class="rl" data-desk="기록" href="/%ED%83%9C%ED%92%8D_%EC%A1%B0%EC%9A%B4.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%B2%AD%EC%9B%90.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%95%EB%85%84.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%80%ED%99%94.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%9D%98%EB%85%80.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%96%91%EB%A1%9C%EC%97%B0.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 25일</span><span>·</span><span>3분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>전력 총수요 역대 1위인데…최대전력은 역대 5위였다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
+<div class="shell"><div class="side-slot"><aside class="side"><h4>분야</h4><nav class="sec-list"><a class="sl on" data-desk="경제" href="/desk-%EA%B2%BD%EC%A0%9C.html"><span class="dot"></span>경제<span class="n">23</span></a><a class="sl" data-desk="정책" href="/desk-%EC%A0%95%EC%B1%85.html"><span class="dot"></span>정책<span class="n">21</span></a><a class="sl" data-desk="기록" href="/desk-%EA%B8%B0%EB%A1%9D.html"><span class="dot"></span>기록<span class="n">54</span></a><a class="sl soon" data-desk="과학" href="/desk-%EA%B3%BC%ED%95%99.html"><span class="dot"></span>과학<span class="n"></span></a><a class="sl soon" data-desk="생활" href="/desk-%EC%83%9D%ED%99%9C.html"><span class="dot"></span>생활<span class="n"></span></a></nav><h4>새 기록</h4><nav class="recent"><a class="rl" data-desk="경제" href="/%EA%B5%90%EC%9C%A1%EA%B2%A9%EC%B0%A8.html"><span class="k">경제</span>대학 교육비 격차 290만 원…그 격차는 초등학교에서 이미 시작됐다</a><a class="rl" data-desk="기록" href="/%ED%86%B5%EA%B3%B5.html"><span class="k">기록</span>민생물가 대책회의…조선은 값을 잡으려 규제를 풀었다 (본편)</a><a class="rl" data-desk="기록" href="/%ED%83%9C%ED%92%8D_%EC%A1%B0%EC%9A%B4.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%B2%AD%EC%9B%90.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%95%EB%85%84.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%A0%80%ED%99%94.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%9D%98%EB%85%80.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a><a class="rl" data-desk="기록" href="/%EC%96%91%EB%A1%9C%EC%97%B0.html"><span class="k">기록</span>미국 관세 15%…조선 500년 기록에 「관세」는 0번이었다 (본편)</a></nav><a class="feedlink" href="/rss.xml">RSS 구독</a></aside></div><div class="main-col"><article data-desk="경제"><div class="meta"><span class="kind">경제</span><span>2026년 08월 25일</span><span>·</span><span>5분 분량</span><span>·</span><span>원자료 직접 집계</span></div><h1>전력 총수요 역대 1위인데…최대전력은 역대 5위였다</h1><div class="ad">광고</div><h2>숫자로 먼저</h2>
 <div class="tw"><table><thead><tr><th>항목</th><th>값</th></tr></thead><tbody><tr><td>(2026 08 25 사용자 지시 「지금 현재 상태의</td><td>주인공 지표를 2026년으로 바꿨다</td></tr><tr><td>총수요 (14:35) 역대 1위 종전 104,215MW (2024 08</td><td>104,394MW</td></tr><tr><td>전력시장 내 차이 = 시장 밖 태양광</td><td>87,348MW · 17,046MW</td></tr><tr><td>역대 1위 (2024 08 20)</td><td>최대전력 95.3GW — 역대 5위 · 97.1GW</td></tr><tr><td>8월 주별 최대 시장수요 전망 1주 93.5 2주 97.9 4주 96.6</td><td>3주 98.8</td></tr><tr><td>1단계 200→300kWh 2단계 400→450kWh</td><td>2026년 7~8월 누진 구간 완화</td></tr><tr><td>⚠ 기사 본문은 총수요 시장 차이를 16,867MW 로 적었는데 이다</td><td>두 값을 빼면 17,046</td></tr><tr><td>로컬 310/DT_31002N_A004 가정용</td><td>2000~2024(전부 2024년까지)</td></tr></tbody></table></div>
+<figure class="chart" style="margin:24px 0">
+<svg viewBox="0 0 640 644" width="100%" height="auto" role="img"
+     aria-label="여름 두 달만 솟습니다" style="max-width:640px;font-family:inherit">
+<style>
+#c0 .ti{font-size:17px;font-weight:700;fill:#14201a}
+#c0 .su{font-size:12.5px;fill:#6f7c74}
+#c0 .lb{font-size:13px;fill:#46534a}
+#c0 .vl{font-size:14px;font-weight:600;fill:#46534a;font-variant-numeric:tabular-nums}
+#c0 .vh{fill:#06643a}
+#c0 .ba{fill:#bcd3c3}
+#c0 .hi{fill:#06643a}
+#c0 .sr{font-size:11.5px;fill:#8b968e}
+#c0 rect{width:0;animation:gc0 .9s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes gc0{to{width:var(--w)}}
+@media (prefers-color-scheme:dark){
+ #c0 .ti{fill:#e5ebe6} #c0 .su,#c0 .lb,#c0 .vl{fill:#a2aea6}
+ #c0 .vh{fill:#57d492} #c0 .ba{fill:#2e4438} #c0 .hi{fill:#57d492}
+ #c0 .sr{fill:#7a867e}}
+@media (prefers-reduced-motion:reduce){
+ #c0 rect{animation:none;width:var(--w)}}
+</style>
+<g id="c0">
+<text x="0" y="22" class="ti">여름 두 달만 솟습니다</text>
+<text x="0" y="42" class="su">2024년 가정용 판매전력량 (GWh) · 월별</text>
+<text x="120" y="78" class="lb" text-anchor="end">1월</text><rect x="132" y="62" height="22" rx="3" class="ba" style="--w:285.5px;animation-delay:0.00s"/><text x="427.52634189899794" y="78" class="vl ">6985.0</text><text x="120" y="124" class="lb" text-anchor="end">2월</text><rect x="132" y="108" height="22" rx="3" class="ba" style="--w:280.7px;animation-delay:0.12s"/><text x="422.7028475047128" y="124" class="vl ">6867.0</text><text x="120" y="170" class="lb" text-anchor="end">3월</text><rect x="132" y="154" height="22" rx="3" class="ba" style="--w:253.4px;animation-delay:0.24s"/><text x="395.4378410556603" y="170" class="vl ">6200.0</text><text x="120" y="216" class="lb" text-anchor="end">4월</text><rect x="132" y="200" height="22" rx="3" class="ba" style="--w:250.6px;animation-delay:0.36s"/><text x="392.57644607599957" y="216" class="vl ">6130.0</text><text x="120" y="262" class="lb" text-anchor="end">5월</text><rect x="132" y="246" height="22" rx="3" class="ba" style="--w:233.2px;animation-delay:0.48s"/><text x="375.1628137712074" y="262" class="vl ">5704.0</text><text x="120" y="308" class="lb" text-anchor="end">6월</text><rect x="132" y="292" height="22" rx="3" class="ba" style="--w:247.1px;animation-delay:0.60s"/><text x="389.0610179581308" y="308" class="vl ">6044.0</text><text x="120" y="354" class="lb" text-anchor="end">7월</text><rect x="132" y="338" height="22" rx="3" class="ba" style="--w:297.3px;animation-delay:0.72s"/><text x="439.29893838674474" y="354" class="vl ">7273.0</text><text x="120" y="400" class="lb" text-anchor="end">8월</text><rect x="132" y="384" height="22" rx="3" class="hi" style="--w:412.0px;animation-delay:0.84s"/><text x="554.0" y="400" class="vl vh">10079.0</text><text x="120" y="446" class="lb" text-anchor="end">9월</text><rect x="132" y="430" height="22" rx="3" class="hi" style="--w:397.1px;animation-delay:0.96s"/><text x="539.1207461057645" y="446" class="vl vh">9715.0</text><text x="120" y="492" class="lb" text-anchor="end">10월</text><rect x="132" y="476" height="22" rx="3" class="ba" style="--w:283.4px;animation-delay:1.08s"/><text x="425.4416112709594" y="492" class="vl ">6934.0</text><text x="120" y="538" class="lb" text-anchor="end">11월</text><rect x="132" y="522" height="22" rx="3" class="ba" style="--w:248.2px;animation-delay:1.20s"/><text x="390.24645302113305" y="538" class="vl ">6073.0</text><text x="120" y="584" class="lb" text-anchor="end">12월</text><rect x="132" y="568" height="22" rx="3" class="ba" style="--w:262.6px;animation-delay:1.32s"/><text x="404.55342791943644" y="584" class="vl ">6423.0</text>
+<text x="0" y="636" class="sr">자료 한국전력공사 한국전력통계 · 원자료로 직접 작성</text>
+</g></svg>
+</figure>
 <h2>8월 7일 오후 2시 35분</h2>
 <figure><img src="/img/02_실외기_01.jpg" alt="02_실외기_01.jpg" loading="lazy"></figure>
 <p>2026년 8월 7일 오후, 우리나라 전력 총수요가 104.4기가와트를 찍었습니다.</p>
@@ -535,6 +571,22 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
       el.style.transitionDelay = Math.min(i, 6) * 40 + 'ms';
       io.observe(el);
     });
+  }
+
+  // 동적 차트 — 화면에 들어올 때 막대가 자라게 한다.
+  // 자바스크립트로 먼저 멈춰 두므로, 스크립트가 안 돌면 예전처럼 바로 그려진다
+  // (막대가 영영 안 보이는 사고를 막는다).
+  var charts = document.querySelectorAll('figure.chart');
+  if (charts.length && !reduce && 'IntersectionObserver' in window) {
+    charts.forEach(function(f){ f.classList.add('wait'); });
+    var co = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (!e.isIntersecting) return;
+        e.target.classList.add('go');
+        co.unobserve(e.target);
+      });
+    }, {rootMargin: '0px 0px -60px 0px', threshold: 0.15});
+    charts.forEach(function(f){ co.observe(f); });
   }
 
   // 검색 — 제목·요약·분야를 훑는다
