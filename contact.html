@@ -128,8 +128,8 @@ article figure.chart{margin:30px 0;padding:22px 20px 16px;background:var(--alt);
 article figure.chart svg{display:block;margin:0 auto}
 article figure.chart+figure.chart{margin-top:18px}
 /* 차트 안 <style> 이 아이디 선택자라 우선순위가 높다. 그래서 !important 를 쓴다 */
-article figure.chart.wait rect{animation-play-state:paused!important}
-article figure.chart.go rect{animation-play-state:running!important}
+article figure.chart.wait svg *{animation-play-state:paused!important}
+article figure.chart.go svg *{animation-play-state:running!important}
 article .vlink a{color:var(--ink3);text-decoration:none;border-bottom:1px solid transparent;
   transition:color .18s,border-color .18s}
 article .vlink a:hover{color:var(--blue);border-bottom-color:var(--blue)}
