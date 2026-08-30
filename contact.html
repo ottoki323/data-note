@@ -20,6 +20,7 @@
   --line:#DCE5EF; --hair:#EDF2F8;
   --navy:#0B1F3A; --navy2:#153252; --blue:#0B5FD0; --blue-l:#3B87E8; --sky:#D6E7FB;
   --econ:#0B5FD0; --pol:#7A3FBF; --rec:#B8541E; --sci:#0E8577; --life:#C2185B;
+  --stock:#0E7A4A; --tech:#1F6FEB;
   --grad:linear-gradient(135deg,#0B1F3A 0%,#123A6B 45%,#0B5FD0 100%);
 }
 @media(prefers-color-scheme:dark){:root{
@@ -27,6 +28,7 @@
   --line:#1E2A38; --hair:#16202B;
   --navy:#050A11; --navy2:#0D1A2B; --blue:#5AA2F5; --blue-l:#8CC0FA; --sky:#132B47;
   --econ:#5AA2F5; --pol:#B08BE8; --rec:#E89B6B; --sci:#4FC7B6; --life:#F080AE;
+  --stock:#4FC98A; --tech:#6AA6FF;
   --grad:linear-gradient(135deg,#050A11 0%,#0D2440 45%,#124C9E 100%);
 }}
 *{box-sizing:border-box}
@@ -38,7 +40,9 @@ a{color:inherit;text-decoration:none}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
 [data-desk="경제"]{--c:var(--econ)} [data-desk="정책"]{--c:var(--pol)}
 [data-desk="기록"]{--c:var(--rec)} [data-desk="과학"]{--c:var(--sci)}
-[data-desk="생활"]{--c:var(--life)} [data-desk]{--c:var(--blue)}
+[data-desk="생활"]{--c:var(--life)}
+[data-desk="주식공부"]{--c:var(--stock)} [data-desk="IT기술"]{--c:var(--tech)}
+[data-desk]{--c:var(--blue)}
 
 /* 헤더 — 남색 바탕 */
 header.top{background:var(--navy);position:sticky;top:0;z-index:40;
@@ -473,7 +477,7 @@ gtag('config', 'G-RYXYW54388', { 'anonymize_ip': true });
   <a class="brand" href="/"><img src="/brand/logo_80.png" alt="데이터 블로그">
     <span class="t"><span class="ko">데이터 블로그</span><br>
     <span class="en">DATA BLOG</span></span></a>
-  <nav><a href="/" class="on">전체</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="">정책</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록</a><a href="/desk-%EA%B3%BC%ED%95%99.html" class="">과학</a><a href="/desk-%EC%83%9D%ED%99%9C.html" class="">생활</a>
+  <nav><a href="/" class="on">전체</a><a href="/desk-%EA%B2%BD%EC%A0%9C.html" class="">경제</a><a href="/desk-%EC%A0%95%EC%B1%85.html" class="">정책</a><a href="/desk-%EC%A3%BC%EC%8B%9D%EA%B3%B5%EB%B6%80.html" class="">주식공부</a><a href="/desk-IT%EA%B8%B0%EC%88%A0.html" class="">IT기술</a><a href="/desk-%EA%B8%B0%EB%A1%9D.html" class="">기록</a><a href="/desk-%EA%B3%BC%ED%95%99.html" class="">과학</a><a href="/desk-%EC%83%9D%ED%99%9C.html" class="">생활</a>
        <a href="/about.html">소개</a></nav>
 </div></header>
 
